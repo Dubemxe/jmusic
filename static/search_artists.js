@@ -162,7 +162,7 @@ async function searchArtist() {
   }
 }
 
-document.getElementById('searchQuery').addEventListener('keydown', function(event) {
+document.getElementById('artistSearchInput').addEventListener('keydown', function(event) {
   if (event.key === 'Enter') {
            document.getElementById('searchBtn').click();  // Trigger search button click
   }

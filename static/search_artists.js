@@ -88,19 +88,22 @@ function popupaDiv() {
 }
 let favoriteArtists = []; // Array to store selected artist IDs
 
-function addToFavorites(checkbox) {
-    const artistId = checkbox.value;
-
+async function addToFavorites(checkbox) {
     if (checkbox.checked) {
-        if (!favoriteArtists.includes(artistId)) {
-            favoriteArtists.push(artistId);
+        const artistName = checkbox.getAttribute('data-artist');
+        const trackId = await getTrackIdsByArtist(artistName);
+
+        if (trackId) {
+            console.log(`Adding track ID: ${trackId}`);
+            // Add the track ID to the favorites list
+        } else {
+            console.log('No track ID found for this artist.');
         }
     } else {
-        favoriteArtists = favoriteArtists.filter(id => id !== artistId);
+        console.log('Checkbox unchecked, remove from favorites if needed.');
     }
-
-    console.log(favoriteArtists); // Debugging: Check if values update correctly
 }
+
 async function searchArtist() {
   // Get the artist's name from the input field
   const artistQuery = document.getElementById('artistSearchInput').value.trim();
@@ -147,7 +150,7 @@ async function searchArtist() {
               <div id="divdd2">          
               <div class="imge" style="background-image: url('${artist.images[0]?.url || 'styles/images/adPic.jpg'}');">
               <div class="checkdiv">
-              <input type="checkbox" class="checkerdh" value="${artistId}" onclick="addToFavorites(this)"> </div>
+              <input type="checkbox" class="checkerdh" data-artist="${artist.name}" onclick="addToFavorites(this)"> </div>
                    <div class="bdiv">
               <p class="artistname">${artist.name}</p> </div> </div> </div>
               <p class=bio>${artistBio}</p>

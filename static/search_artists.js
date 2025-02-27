@@ -136,9 +136,8 @@ async function searchArtist() {
       const artistBio = await getArtistBio(artist.name);
 
        const artistElement = document.createElement('div');
-       artistElement.classList.add('search_back');
-
-    /*const trackHTML*/ artistElement.innerHTML = `
+       
+  const trackHTML = `
                    <div class="div1">
     <p class="searchtxt">Search Results</p>
     <img src="styles/images/icons8-x-50 white.png" class="imgd" onclick="popupaDiv()">
@@ -155,8 +154,7 @@ async function searchArtist() {
               <p class="artistname">${artist.name}</p> </div> </div> </div>
               <p class=bio>${artistBio}</p>
           `;
-        /*searchResultsContainer.innerHTML += trackHTML;*/
-        searchResultsContainer.appendChild(artistElement);
+        searchResultsContainer.innerHTML += trackHTML;
     }  catch (error) {
       console.error('Error fetching artist data:', error);
   }

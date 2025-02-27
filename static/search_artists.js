@@ -129,6 +129,7 @@ async function searchArtist() {
       }
       // Update the Search Results section
       const searchResultsContainer = document.getElementById('searchbackDiv');
+      searchResultsContainer.innerHTML = '';
         
       const artistId = await getTrackIdsByArtist(artist.name);
       const artistBio = await getArtistBio(artist.name);
@@ -151,7 +152,7 @@ async function searchArtist() {
               <p class="artistname">${artist.name}</p> </div> </div> </div>
               <p class=bio>${artistBio}</p>
           `;
-        searchResultsContainer.innerHTML += trackHTML;
+        searchResultsContainer.innerHTML = trackHTML;
     }  catch (error) {
       console.error('Error fetching artist data:', error);
   }

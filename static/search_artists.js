@@ -86,13 +86,20 @@ function popupaDiv() {
     contentDiv.style.display = 'none'; // Hide the div
   }
 }
-let favoriteArtists = []; // Array to store selected artist IDs
+let  selectedTrackIds = []; // Array to store selected artist IDs
 
 async function addToFavorites(checkbox) {
     if (checkbox.checked) {
         const artistName = checkbox.getAttribute('data-artist');
         const trackId = await getTrackIdsByArtist(artistName);
 
+      if (checkbox.checked) {
+        if (!selectedTrackIds.includes(trackId)) {
+            selectedTrackIds.push(trackId);
+        }
+    } else {
+        selectedTrackIds = selectedTrackIds.filter(id => id !== trackId);
+    }
         if (trackId) {
             console.log(`Adding track ID: ${trackId}`);
             // Add the track ID to the favorites list
@@ -103,7 +110,15 @@ async function addToFavorites(checkbox) {
         console.log('Checkbox unchecked, remove from favorites if needed.');
     }
 }
-
+function completeList() {
+    if (selectedTrackIds.length === 0) {
+        alert("Please select at least one artist.");
+        return;
+    }
+    
+    const trackIdString = selectedTrackIds.join(',');
+    window.location.href = `searchpage.html?trackIds=${encodeURIComponent(trackIdString)}`;
+}
 async function searchArtist() {
   // Get the artist's name from the input field
   const artistQuery = document.getElementById('artistSearchInput').value.trim();

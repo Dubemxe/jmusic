@@ -30,7 +30,7 @@ async function getTrackIdsByArtist(artistName) {
     return [];
   }
 }
-async function myTop5rep(atrackIds) {
+/*async function myTop5rep(atrackIds) {
     let allTrackIds = []; // To store track IDs from all artists
 
     for (const artist of atrackIds) {
@@ -55,6 +55,17 @@ function toSearchrep() {
         if (selectedArtists.length > 0) {
                 myTop5rep(selectedArtists);
         }
+} */
+async function myrepTop5(artistNames)  {
+    let allTrackIds = []; // To store track IDs from all artists
+
+    for (const artist of artistNames) {
+        const trackIds = await getTrackIdsByArtist(artist);
+        console.log(`Track IDs for ${artist}:`, trackIds);
+
+        // Add the trackIds for this artist to the allTrackIds array
+        allTrackIds = allTrackIds.concat(trackIds);
+    }
 }
 async function getArtistBio(artistName) {
     const apiKey = '15e5f9128c80ca2ea5b7bb90bbcda271';
@@ -89,24 +100,21 @@ function popupaDiv() {
 let  selectedTrackIds = []; // Array to store selected artist IDs
 
 async function addToFavorites(checkbox) {
-    if (checkbox.checked) {
         const artistName = checkbox.getAttribute('data-artist');
-        const trackId = await getTrackIdsByArtist(artistName);
+        const trackId = await myrepTop5(artistName);
 
       if (checkbox.checked) {
-        if (!selectedTrackIds.includes(trackId)) {
+        if (!selectedTrackIds.includes(trackId))    {
             selectedTrackIds.push(trackId);
-        }
+          console.log(`Adding track ID: ${trackId}`);
     } else {
+          console.log('No track ID found for this artist or already in favorites.');
+        }
+      } else {
+          if (trackId) {
         selectedTrackIds = selectedTrackIds.filter(id => id !== trackId);
+        console.log(`Removed track ID: ${trackId}`);
     }
-        if (trackId) {
-            console.log(`Adding track ID: ${trackId}`);
-            // Add the track ID to the favorites list
-        } else {
-            console.log('No track ID found for this artist.');
-        }
-    } else {
         console.log('Checkbox unchecked, remove from favorites if needed.');
     }
 }

@@ -129,13 +129,10 @@ async function searchArtist() {
       }
       // Update the Search Results section
       const searchResultsContainer = document.getElementById('searchbackDiv');
-      searchResultsContainer.innerHTML = "";
-
-    
+        
       const artistId = await getTrackIdsByArtist(artist.name);
       const artistBio = await getArtistBio(artist.name);
 
-       const artistElement = document.createElement('div');
        
   const trackHTML = `
                    <div class="div1">

@@ -56,7 +56,7 @@ function toSearchrep() {
                 myTop5rep(selectedArtists);
         }
 } */
-async function myrepTop5(artistNames)  {
+/*async function myrepTop5(artistNames)  {
     let allTrackIds = []; // To store track IDs from all artists
 
     for (const artist of artistNames) {
@@ -66,7 +66,33 @@ async function myrepTop5(artistNames)  {
         // Add the trackIds for this artist to the allTrackIds array
         allTrackIds = allTrackIds.concat(trackIds);
     }
+}*/
+async function addToFavorites(checkbox) {
+    const artistName = checkbox.getAttribute('data-artist');
+    const trackIds = await myrepTop5([artistName]); // Get an array of track IDs
+
+    if (checkbox.checked) {
+        if (trackIds.length > 0) {
+            trackIds.forEach(trackId => {
+                if (!selectedTrackIds.includes(trackId)) {
+                    selectedTrackIds.push(trackId);
+                    console.log(`Adding track ID: ${trackId}`);
+                }
+            });
+        } else {
+            console.log('No track IDs found for this artist.');
+        }
+    } else {
+        // If the checkbox is unchecked, remove all track IDs for this artist
+        trackIds.forEach(trackId => {
+            selectedTrackIds = selectedTrackIds.filter(id => id !== trackId);
+            console.log(`Removed track ID: ${trackId}`);
+        });
+        console.log('Checkbox unchecked, removed track IDs from favorites if needed.');
+    }
 }
+
+
 async function getArtistBio(artistName) {
     const apiKey = '15e5f9128c80ca2ea5b7bb90bbcda271';
     const bioUrl = `https://ws.audioscrobbler.com/2.0/?method=artist.getinfo&artist=${encodeURIComponent(artistName)}&api_key=${apiKey}&format=json`;

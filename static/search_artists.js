@@ -5,7 +5,7 @@ async function getTrackIdsByArtist(artistName) {
     const encodedArtistName = encodeURIComponent(artistName);
 
     // Construct the search URL for tracks by the artist
-    const searchUrl = `https://v1.nocodeapi.com/jmusic4/spotify/kibKUujvhYKHJxPL/search?q=${encodedArtistName}&type=track`;
+    const searchUrl = `https://v1.nocodeapi.com/jmusic5/spotify/ivEUaoclsKKyrlqW/search?q=${encodedArtistName}&type=track`;
 
     // Make a GET request to the search URL with the Spotify API access token
     const response = await fetch(searchUrl);

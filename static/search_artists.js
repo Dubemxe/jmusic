@@ -124,8 +124,11 @@ function completeList() {
         return;
     }
     
-    const trackIdString = selectedTrackIds.join(',');
-    window.location.href = `searchpage.html?trackIds=${encodeURIComponent(trackIdString)}`;
+    /*const trackIdString = selectedTrackIds.join(',');
+      window.location.href = `searchpage.html?trackIds=${encodeURIComponent(trackIdString)}`;*/
+
+     const encodedTrackIds = encodeURIComponent(selectedTrackIds.join(','));
+     window.location.href = `mysearchpage.html#trackIds=${encodedTrackIds}`;
 }
 async function searchArtist() {
   // Get the artist's name from the input field

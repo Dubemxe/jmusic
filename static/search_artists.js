@@ -140,7 +140,7 @@ async function searchArtist() {
       return;
   }
   // Spotify API URL for searching artists
-  const searchUrl = `https://v1.nocodeapi.com/jmusic4/spotify/kibKUujvhYKHJxPL/search?q=${encodeURIComponent(artistQuery)}&type=artist`;
+  const searchUrl = `https://v1.nocodeapi.com/jmusic5/spotify/ivEUaoclsKKyrlqW/search?q=${encodeURIComponent(artistQuery)}&type=artist`;
   // Fetch the artist's data
   try {
       const response = await fetch(searchUrl);

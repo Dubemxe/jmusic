@@ -214,7 +214,7 @@ async function searchArtist() {
               <div id="divdd2">          
               <div class="imge" style="background-image: url('${artist.images[0]?.url || 'styles/images/adPic.jpg'}');">
               <div class="checkdiv">
-              <input type="checkbox" class="checkerdh" data-artist="${artist.name}" onclick="addToFavorites(this)"> </div>
+              <input type="checkbox" class="checkerdh" value="${artist.name}" data-artist="${artist.name}" onclick="addToFavorites(this)"> </div>
                    <div class="bdiv">
               <p class="artistname">${artist.name}</p> </div> </div> </div>
               <p class=bio>${artistBio}</p>

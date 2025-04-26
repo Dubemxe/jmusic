@@ -137,7 +137,7 @@ function popupaDiv() {
 }
 let  selectedTrackIds = []; // Array to store selected artist IDs
 
-async function addToFavorites(checkbox) {
+/*async function addToFavorites(checkbox) {
         const artistName = checkbox.getAttribute('data-artist');
         const trackId = await myrepTop5(artistName);
 
@@ -155,15 +155,15 @@ async function addToFavorites(checkbox) {
     }
         console.log('Checkbox unchecked, remove from favorites if needed.');
     }
-}
+}*/
 function completeList() {
     if (selectedTrackIds.length === 0) {
         alert("Please select at least one artist.");
         return;
     }
     
-    /*const trackIdString = selectedTrackIds.join(',');
-      window.location.href = `searchpage.html?trackIds=${encodeURIComponent(trackIdString)}`;*/
+      const trackIdString = selectedTrackIds.join(',');
+      window.location.href = `searchpage.html?trackIds=${encodeURIComponent(trackIdString)}`;
 
      const encodedTrackIds = encodeURIComponent(selectedTrackIds.join(','));
      window.location.href = `mysearchpage.html#trackIds=${encodedTrackIds}`;

@@ -72,7 +72,7 @@ async function myrepTop5(artistNames)  {
 
     for (const artist of artistNames) {
         const trackIds = await getTrackIdsByArtist(artist);
-        console.log(Track IDs for ${artist}:, trackIds);
+          console.log(Track IDs for ${artist}, trackIds);
 
         // Add the trackIds for this artist to the allTrackIds array
         allTrackIds = allTrackIds.concat(trackIds);

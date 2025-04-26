@@ -67,6 +67,18 @@ function toSearchrep() {
         allTrackIds = allTrackIds.concat(trackIds);
     }
 }*/
+async function myrepTop5(artistNames)  {
+    let allTrackIds = []; // To store track IDs from all artists
+
+    for (const artist of artistNames) {
+        const trackIds = await getTrackIdsByArtist(artist);
+        console.log(Track IDs for ${artist}:, trackIds);
+
+        // Add the trackIds for this artist to the allTrackIds array
+        allTrackIds = allTrackIds.concat(trackIds);
+    }
+}
+
 async function addToFavorites(checkbox) {
     const artistName = checkbox.getAttribute('data-artist');
     const trackIds = await myrepTop5([artistName]); // Get an array of track IDs

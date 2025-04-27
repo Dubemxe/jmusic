@@ -15,34 +15,41 @@
   </head>
 
   <body>
+    <div class="container">
 
-<div class="theBox">
- <div class="header"> <p class="alrtxt faculty-glyphic-regular">Already have an Account?</p> <button class="btn2" onclick="window.location.href='JMusic.login.html'">Login</button></div>
-  <div class="container">
-<p class="wlctxt faculty-glyphic-regular">Welcome to JMusic</p>
+    <div class="header">
+      <img src="styles/images/jmusic_logo.png" alt="" class="logo">
+      <p class="tp1">I already have an account—</p>
+       <a href="#" class="sig">Sign In</a>
+    </div>
 
-<div id="g_id_onload"
-data-client_id="1063818440582-38k7m72p93oijp9ciam4b0jb04j3hgp9.apps.googleusercontent.com"
-data-context="signup"
-data-ux_mode="popup"
-data-callback="handleCredentialResponse">
-</div>
+    <div class="content_box">
+      <p class="tp2">Create an Account</p>
 
-<div class="g_id_signin" data-type="standard"></div>
+    <div id="g_id_onload"
+    data-client_id="1063818440582-38k7m72p93oijp9ciam4b0jb04j3hgp9.apps.googleusercontent.com"
+    data-context="signup"
+    data-ux_mode="popup"
+    data-callback="handleCredentialResponse">
+    </div>
+    
+    <div class="g_id_signin" data-type="standard"></div>
+    
+    <div class="ant-divider"></div>
+    <div class="ant-divider ant-divider-horizontal ant-divider-with-text"
+    style="color: rgba(78, 75, 75, 0.753); border-color: rgba(116, 110, 110, 0.842);">
+      <span class="ant-divider-inner-text" style="color: black; margin-bottom: 10px;">Or SignUp with Email</span>
+    </div>
+        <form action="">
+    <div class="client_cred">
+        <div class="memdiv">
+    <div class="emdiv"><img src="images/icons8-email-50.png" alt="" class="img1"></div><input  type="email" required placeholder="Email Address" class="email_input"></div>
+    <div class="memdiv">
+    <div class="emdiv"><img src="images/icons8-key-24.png" alt="" class="img1"></div><input type="" required placeholder="Create Password" class="password_input"></div></div>
+    <button class="btn1 faculty-glyphic-regular" onclick="window.location.href='homepage.html'">Create Free Account</button> </form>
+  </div>
 
-<div class="ant-divider"></div>
-<div class="ant-divider ant-divider-horizontal ant-divider-with-text"
-style="color: rgba(255, 255, 255, 0.411); border-color: rgba(255, 255, 255, 0.411);">
-  <span class="ant-divider-inner-text" style="color: white;">Or SignUp with Email</span>
-</div>
-    <form action="">
-<div class="client_cred">
-<input type="email" required placeholder="Email Address" class="email_input">
-<input type="" required placeholder="Create Password" class="password_input"></div>
-<button class="btn1 faculty-glyphic-regular" onclick="window.location.href='homepage.html'">Create Free Account</button> </form>
-
-</div>
-</div>
+  </div>
 
 <script>
   function handleCredentialResponse(response) {

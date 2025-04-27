@@ -1,97 +1,100 @@
-body, html {
-  margin: 0;
+a {
+  font-size: 19px;
 }
-.faculty-glyphic-regular {
-  font-family: "Faculty Glyphic";
-  font-weight: 400;
-  font-style: normal;
+.sig {
+  color: black;
 }
-.theBox {
-  width: 100%;
-  height: 120vh;
-  background-image: url('images/updated.bbg1.jpg');
-  align-items: center;
-  justify-items: center;
-  padding-top: 40px;
+a:hover {
+    color: blueviolet;
+  }
+
+body {
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  margin: 0px;
+  padding: 0px;
 }
 .header {
   display: flex;
   flex-direction: row;
-  margin-bottom: 110px;
-  column-gap: 14px;
-  justify-items: center;
-  margin-left: 885px;
-}
-.container {
+  column-gap: 0px;
   align-items: center;
-  justify-items: center;
 }
-.wlctxt {
-  color: rgba(247, 243, 12, 0.911);
-  font-size: 52px;
-  font-family: sans-serif;
-  font-weight: 400;
+.logo {
+  width: 115px;
+  height: 105px;
+  margin-left: 20px;
+  margin-top: 6px;
+  margin-right: 780px;
 }
+.btn {
+  width: 100px;
+  height: 40px;
+  font-size: large;
 
-.client_cred {
-  display: flex;
-  flex-direction: column;
-  row-gap: 10px;
-  margin-top: 40px;
+}
+.tp1 {
+  font-size: 19px;
+  margin-top: 14px;
+
+}
+.tp2 {
+  font-size: 36px;
+  font-weight: 400;
+  margin-left: 15px;
+  margin-top: 120px;
+  margin-bottom: 130px;
+}
+.content_box {
+  justify-self: center;
+  margin-top: 70px;
 }
 .email_input {
-  width: 450px;
-  border-style: solid;
-  border-color: rgba(128, 128, 128, 0.425);
-  border-radius: 8px;
-  height: 43px;
-  background-color: rgb(255, 255, 255);
-  padding-left: 10px;
-  font-size: 15px;
+  width: 314px;
+  height: 35px;
+  border: solid 1px rgb(112, 106, 106);
+  border-radius: 11px;
+  border-left-color: rgb(255, 255, 255);
+  border-top-left-radius: 0px;
+  border-bottom-left-radius: 0px;
 }
-
 .password_input {
-  width: 450px;
-  border-style: solid;
-  border-color: gray;
-  border-radius: 8px;
-  height: 43px;
-  padding-left: 10px;
-  font-size: 15px;
+  width: 314px;
+  height: 35px;
+  border: solid 1px rgb(112, 106, 106);
+  border-radius: 11px;
+  border-left-color: rgb(255, 255, 255);
+  border-top-left-radius: 0px;
+  border-bottom-left-radius: 0px;
 }
 .btn1 {
-  background-color: rgb(131, 39, 39);
+  width: 322px;
+  height: 35px;
+  background-color: rgb(2, 2, 32);
+  color: white;
+  font-size: 15px;
+  margin-top: 18px;
+  margin-bottom: 90px;
+  border-radius: 11px;
   border: none;
-  border-radius: 10px;
-  width: 380px;
-  margin-left: 20px;
-  height: 40px;
-  font-size: 20px;
-  font-weight: bold;
-  color: white;
-  margin-top: 32px;
-}
-.btn1:hover {
-  opacity: 0.8;
-  transform: scale(1.1);
-}
-.alrtxt {
-  color: white;
-  font-size: 17px;
-  margin-top: 8px;
-}
-.btn2 {
-  background-color: rgb(15, 13, 13);
-  width: 122px;
-  border: none;
-  height: 40px;
-  color: white;
-  font-size: 20px;
-  border-radius: 7px;
-  transition: all 0.3s ease;
   cursor: pointer;
+  margin-left: 10px;
 }
-.btn2:hover {
-  opacity: 0.8;
-  transform: scale(1.1);
+.memdiv {
+  display: flex;
+  flex-direction: row;
+  margin-bottom: 15px;
+}
+.emdiv {
+  border: solid 1px rgb(112, 106, 106);
+  width: 30px;
+  border-right-color: rgba(255, 255, 255, 0);
+  border-radius: 7px;
+  border-top-right-radius: 0px;
+  border-bottom-right-radius: 0px;
+}
+.img1 {
+  width: 20px;
+  height: 20px;
+  margin-left: 4px;
+  margin-top: 5px;
 }

@@ -14,35 +14,40 @@
   </head>
 
   <body>
+        <div class="container">
 
-<div class="theBox">
- <div class="header"> <p class="logotxt">JMusic</p><button class="btn2 faculty-glyphic-regular" onclick="window.location.href='index.html'">Back to SignUp</button></div>
-  <div class="container">
-<p class="wlctxt">Welcome back...</p>
+    <div class="header">
+      <img src="images/jmusic_logo.png" alt="" class="logo">
+      <p class="tp1">Don't have an account?</p>
+       <a href="#" class="sig">Create new account</a>
+    </div>
 
-<div id="g_id_onload"
-data-client_id="YOUR_CLIENT_ID"
-data-context="signup"
-data-ux_mode="popup"
-data-callback="handleCredentialResponse">
-</div>
+    <div class="content_box">
+      <p class="tp2">Login to JMusic</p>
 
-<div class="g_id_signin" data-type="standard"></div>
-
-<div class="ant-divider"></div>
-<div class="ant-divider ant-divider-horizontal ant-divider-with-text"
-style="color: rgba(255, 255, 255, 0.411); border-color: rgba(255, 255, 255, 0.411);">
-  <span class="ant-divider-inner-text" style="color: white;">Or continue with Email</span>
-</div>
-    <form action="">
-<div class="client_cred">
-<input type="email" required placeholder="Email Address" class="email_input">
-<input type="" required placeholder="Enter Password" class="password_input"></div>
-<button class="btn1 faculty-glyphic-regular" onclick="window.location.href='homepage.html'">Login now</button> </form>
-
-</div>
-</div>
-
+    <div id="g_id_onload"
+    data-client_id="1063818440582-38k7m72p93oijp9ciam4b0jb04j3hgp9.apps.googleusercontent.com"
+    data-context="login"
+    data-ux_mode="popup"
+    data-callback="handleCredentialResponse">
+    </div>
+    
+    <div class="g_id_signin" data-type="standard"></div>
+    
+    <div class="ant-divider"></div>
+    <div class="ant-divider ant-divider-horizontal ant-divider-with-text"
+    style="color: rgba(78, 75, 75, 0.753); border-color: rgba(116, 110, 110, 0.842);">
+      <span class="ant-divider-inner-text" style="color: black; margin-bottom: 10px;">Or SignIn with Email</span>
+    </div>
+        <form action="">
+    <div class="client_cred">
+        <div class="memdiv">
+    <div class="emdiv"><img src="images/icons8-email-50.png" alt="" class="img1"></div><input  type="email" required placeholder="Email Address" class="email_input"></div>
+    <div class="memdiv">
+    <div class="emdiv"><img src="images/icons8-key-24.png" alt="" class="img1"></div><input type="" required placeholder="Enter Password" class="password_input"></div></div>
+    <button class="btn1 faculty-glyphic-regular" onclick="window.location.href='homepage.html'">Login now</button> </form>
+  </div>
+ </div>
 <script>
   function handleCredentialResponse(response) {
       console.log("Encoded JWT ID token: " + response.credential);

@@ -1,108 +1,99 @@
-body, html {
-  margin: 0;
+a {
+  font-size: 21px;
 }
-.faculty-glyphic-regular {
-  font-family: "Faculty Glyphic", serif;
-  font-weight: 400;
-  font-style: normal;
+.sig {
+  color: black;
 }
-.theBox {
-  width: 100%;
-  height: 120vh;
-  background-image: url('images/updated.bbg1.jpg');
-  padding-top: 40px;
+a:hover {
+    color: rgb(29, 230, 129);
+  }
+
+body {
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  margin: 0px;
+  padding: 0px;
 }
 .header {
   display: flex;
   flex-direction: row;
-  margin-bottom: 110px;
-  column-gap: 14px;
-  justify-items: center;
-  margin-left: px;
-}
-.logotxt {
-  margin-left: 25px;
-  margin-right: 930px;
-  margin-bottom: 0;
-  color: rgba(247, 243, 12, 0.911);
-  cursor: pointer;
-  font-size: 34px;
-  font-weight: bolder;
-  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
-}
-.logotxt:hover {
-  color: rgb(253, 250, 70);
-  transform: scale(1.1);
-}
-.container {
+  column-gap: 0px;
   align-items: center;
-  justify-items: center;
-  width: 700px;
-  place-self: center;
 }
-.wlctxt {
-  color: rgba(247, 243, 12, 0.911);
-  font-size: 50px;
-  font-family: sans-serif;
+.logo {
+  width: 125px;
+  height: 115px;
+  margin-left: 20px;
+  margin-top: 6px;
+  margin-right: 700px;
 }
+.tp1 {
+  font-size: 23px;
+  margin-top: 23px;
 
-.client_cred {
-  display: flex;
-  flex-direction: column;
-  row-gap: 10px;
-  margin-top: 40px;
+}
+.tp2 {
+  font-size: 43px;
+  font-weight: 400;
+  margin-right: 10px;
+  margin-top: 120px;
+  margin-bottom: 130px;
+}
+.content_box {
+  justify-self: center;
+  margin-top: 70px;
 }
 .email_input {
-  width: 450px;
-  border-style: solid;
-  border-color: rgba(128, 128, 128, 0.425);
-  border-radius: 8px;
-  height: 42px;
-  background-color: rgb(255, 255, 255);
-  padding-left: 10px;
-  font-size: 15px;
+  width: 359px;
+  height: 43px;
+  border: solid 1px rgb(112, 106, 106);
+  border-radius: 11px;
+  border-left-color: rgb(255, 255, 255);
+  border-top-left-radius: 0px;
+  border-bottom-left-radius: 0px;
 }
-
 .password_input {
-  width: 450px;
-  border-style: solid;
-  border-color: gray;
-  border-radius: 8px;
-  height: 42px;
-  padding-left: 10px;
-  font-size: 15px;
+  width: 359px;
+  height: 43px;
+  border: solid 1px rgb(112, 106, 106);
+  border-radius: 11px;
+  border-left-color: rgb(255, 255, 255);
+  border-top-left-radius: 0px;
+  border-bottom-left-radius: 0px;
 }
 .btn1 {
-  background-color: rgb(131, 39, 39);
-  border: none;
-  border-radius: 10px;
-  width: 380px;
-  height: 40px;
-  margin-left: 32px;
-  font-size: 18px;
-  font-weight: bold;
+  width: 352px;
+  height: 43px;
+  background-color: rgb(2, 2, 32);
   color: white;
-  margin-top: 32px;
+  font-size: 15px;
+  margin-top: 18px;
+  margin-bottom: 90px;
+  border-radius: 11px;
+  border: none;
+  cursor: pointer;
+  margin-left: 10px;
+  transition: all 0.3s ease;
 }
 .btn1:hover {
   opacity: 0.8;
   transform: scale(1.1);
 }
-
-.btn2 {
-  background-color: rgb(131, 39, 39);
-  width: 190px;
-  border: none;
-  height: 46px;
-  font-weight: bold;
-  color: white;
-  margin-top: 12px;
-  font-size: 20px;
-  border-radius: 7px;
-  transition: all 0.3s ease;
-  cursor: pointer;
+.memdiv {
+  display: flex;
+  flex-direction: row;
+  margin-bottom: 15px;
 }
-.btn2:hover {
-  opacity: 0.8;
-  transform: scale(1.1);
+.emdiv {
+  border: solid 1px rgb(112, 106, 106);
+  width: 30px;
+  border-right-color: rgba(255, 255, 255, 0);
+  border-radius: 7px;
+  border-top-right-radius: 0px;
+  border-bottom-right-radius: 0px;
+}
+.img1 {
+  width: 20px;
+  height: 20px;
+  margin-left: 4px;
+  margin-top: 10px;
 }

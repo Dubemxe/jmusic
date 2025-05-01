@@ -12,7 +12,7 @@ body, html {
 }
 .funSide {
   background-color: rgb(0, 0, 17);
-  margin-left: 40px;
+  margin-left: 48px;
   width: 775px;
   height: 1380px;
   justify-items: center;
@@ -57,7 +57,7 @@ body, html {
 .tooBox {
   display: flex;
   flex-direction: row;
-  background-color: pink;
+  background-color: black;
 }
 .header {
     display: flex;
@@ -107,7 +107,7 @@ body, html {
 .Np3 {
   font-weight: bold;
   color: whitesmoke;
-  margin-top: 40px;
+  margin-top: 7px;
   font-size: 28x;
 }
 .searchbar {
@@ -166,7 +166,7 @@ body, html {
 .select_boxes {
   background-color: rgb(0, 0, 17);
   display: grid;
-  margin-left: 11px;
+  margin-left: 14px;
   width: 608px;
   margin-top: 0px;
   grid-template-columns: 0.5fr 0.5fr 0.5fr;

@@ -8,7 +8,7 @@ async function searchSong_onpage() {
         document.getElementById('searchMessage').textContent = `Here's the results for "${query}"`;
         
         // Personal nocodeapi url
-        const searchUrl = `https://v1.nocodeapi.com/jmusic3/spotify/webvybGfTcWRBfis/search?q=${encodeURIComponent(query)}&type=track`;
+        const searchUrl = `https://v1.nocodeapi.com/jmusic6/spotify/lQcmZrFNcMqfCRzc/search?q=${encodeURIComponent(query)}&type=track`;
 
         const response = await fetch(searchUrl);
 

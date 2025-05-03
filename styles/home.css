@@ -530,8 +530,8 @@ body, html {
 .search_back {
   display: none;
   background-color: rgb(0, 0, 17);
-  width: 615px;
-  height: 1280px;
+  width: 645px;
+  height: 1330px;
   position: absolute;
   left: 50%;
 }
@@ -557,9 +557,8 @@ p {
 .div1 {
   display: flex;
   display: flex;
-  margin-left: 24px;
+  margin-left: 4px;
   margin-top: 34px;
-  padding-bottom: 44px;
   flex-direction: row;
   column-gap: 30px;
 }

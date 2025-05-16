@@ -57,7 +57,7 @@ async function searchSong_onpage() {
           return trackHTML;
         }).join('');
 
-        document.getElementById('songList').innerHTML = songListHTML;
+        document.getElementById('ResSong_list').innerHTML = songListHTML;
 
         } catch (error) {
                 console.error('Error searching for the song:', error);

@@ -32,27 +32,25 @@ async function searchSong_onpage() {
         const songListHTML = trackItems.map((track, index) =>  {
             const artists = track.artists.map(artist => artist.name).join(', ');
             const trackHTML = `
-        <div class="musicInfo" onclick="getAudio('${track.preview_url}')">
+                <div class="musicInfo" onclick="getAudio('${track.preview_url}')" style="font-family: 'Manrope'">
         <img src="${track.album.images[0].url}" alt="${track.name}" class="albumImage" id="popup_image${index}" onclick="popupDiv(${index})">
-       <div class="artistsDets">
-        <p class="songTitle">${track.name}</p>
-        <p class="artistName">${track.artists.map(artist => artist.name).join(', ')} . ${track.album.name}</p>
+         <div class="artistsDets">
+        <p class="songTitle" style="font-family: 'Manrope'">${track.name}</p>
+        <p class="artistName" style="font-family: 'Manrope'">${track.artists.map(artist => artist.name).join(', ')} . ${track.album.name}</p>
         </div>
-        <div id="content_div${index}" class="content_div">
+        <p class="duration" style="font-family: 'Manrope'">${msToTime(track.duration_ms)}</p>
+                <div id="content_div${index}" class="content_div">
         <div class="img_box">
          <img src="${track.album.images[0].url}" alt="${track.name}" class="pp_img">
-        <button class="xbtn" onclick="popupDiv(${index})"><img src="styles/images/icons8-x-50 (1).png" class="xicon"></button>
+        <button class="xbtn" onclick="popupDiv(${index})"><img src="styles/images/icons8-x-50 white.png" class="xicon"></button>
         </div>
-        <p class="p1">${track.name}</p>
-        <p class="dp">${artists} </p>
-        <p class="dp">Released on ${track.album.release_date}</p>
-        <p class="dp1">From the ${track.album.name} Album</p>
+        <p class="p1" style="font-family: 'Manrope'">${track.name}</p>
+        <p class="dp" style="font-family: 'Manrope'">${artists} </p>
+        <p class="dp" style="font-family: 'Manrope'">Released on ${track.album.release_date}</p>
+        <p class="dp1" style="font-family: 'Manrope'">From the ${track.album.name} Album</p>
         </div>
-        <p class="artistName">${artists} </p>
-        <p class="songTitle"> - ${track.name}</p>
-        <p class="duration">${msToTime(track.duration_ms)}</p>
         ${track.preview_url ? `<p> </p>` : `<p class="noPreview">No Preview Available</p>`}
-        </div>
+            </div>
         `;
           return trackHTML;
         }).join('');

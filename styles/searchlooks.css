@@ -208,8 +208,8 @@ button .icon {
   width: 360px;
   height: 280px;
   border-radius: 8px;
-  margin-left: 13px;
-  margin-top: 55px;
+  margin-left: 38px;
+  margin-top: 61px;
   margin-bottom: 0px;
 }
 .kanit-regular {
@@ -241,13 +241,13 @@ p {
 .dp {
   margin-top: 0px;
   margin-bottom: 0px;
-  margin-left: 11px;
+  margin-left: 22px;
   font-size: 20px;
 }
 .dp1 {
   margin-top: 0px;
   margin-bottom: 0px;
-  margin-left: 11px;
+  margin-left: 22px;
   font-size: 20px;
 }
 .p1 {
@@ -255,7 +255,7 @@ p {
   font-size: 27px;
   color: azure;
   margin-top: 0px;
-  margin-left: 9px;
+  margin-left: 19px;
   margin-bottom: 50px;
 }
 .xicon {
@@ -264,14 +264,14 @@ p {
 .xbtn {
   background-color:  rgba(0, 0, 0, 0);
   border: none;
-  margin-top: 15px;
+  margin-top: 8px;
   padding: 0px;
   height: 42px;
   width: 43px;
   padding-top: 0px;
   margin-bottom: 255px;
   cursor: pointer;
-  margin-right: 8px;
+  margin-right: 14px;
 }
 .img_box {
   display: flex;

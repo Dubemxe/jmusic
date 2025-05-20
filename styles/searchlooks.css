@@ -209,7 +209,7 @@ button .icon {
   height: 280px;
   border-radius: 8px;
   margin-left: 13px;
-  margin-top: 75px;
+  margin-top: 55px;
   margin-bottom: 0px;
 }
 .kanit-regular {
@@ -259,16 +259,15 @@ p {
   margin-bottom: 50px;
 }
 .xicon {
-  height: 35px;
-  width: 35px;
+
   }
 .xbtn {
   background-color:  rgba(0, 0, 0, 0);
   border: none;
   margin-top: 15px;
   padding: 0px;
-  width: 28px;
-  height: 28px;
+  height: 42px;
+  width: 43px;
   padding-top: 0px;
   margin-bottom: 255px;
   cursor: pointer;

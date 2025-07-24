@@ -14,15 +14,60 @@
 <body>
 
 <div class="container">
-        <div class="header">
-         <img src="styles/images/icons8-back-50 (1).png" class="back_img" onclick="window.history.back()">
-         <p class="sub-title">Here's a Cool Mix from<br>Your Favorites</p>
-          <div class="search_div">
-          <input type="text" id="searchQuery" placeholder="Search for your Favorites...">
-          <button onclick="searchSong()" class="searchbtn" id="sBtn"><img src="styles/images/icons8-search-48.png" class="searchimg"></button> </div>
+
+          
+    <!-- Left Section -->
+    <div class="songlist_sec" id="leftside">
+      <div class="homeheader">
+        <div>
+          <img src="images/icons8-left-arrow-50.png" alt="back" class="back_img"  onclick="window.history.back()">
+          <p>Search</p>
+          <div class="search_sec">
+            <input type="text"  id="searchQuery" placeholder="" class="searchbar" />
+            <button onclick="searchSong()" class="searchBtn" d="sBtn"> <img src="images/icons8-search-48.png" class="searchimg"> </button>
+          </div>
         </div>
+        <img src="images/icons8-user-64 (1).png" alt="user" class="actimg" id="accimg" />
+      </div>
+
+        <h1 class="subtext">All songs</h1>
         <div id="songList" class="musicList"></div>
 </div> 
+        <!-- Slide-in Right Panel -->
+    <div class="full-player" id="fullPlayer">
+      <div class="player-header">
+        <h2>Now Playing</h2>
+        <img id="closeBtn" onclick="closeFullPlayer()" src="images/icons8-x-50 white.png" />
+      </div>
+
+      <div class="player-main">
+        <div class="album-art" id="albumArt">
+        </div>
+
+        <div class="song-info">
+          <h1 id="songTitle"></h1>
+          <p id="songArtist"></p>
+        </div>
+
+        <div class="extra-controls">
+          <button id="shuffleBtn"><img src="images/icons8-shuffle-64 (1).png" class="shff" /></button>
+          <button id="favBtn">♡</button>
+        </div>
+
+        <div class="progress-bar"><div class="progress-filled" style="width: 33%;"></div></div>
+        <div class="time-display">
+          <span id="currentTime">1:23</span>
+          <span id="songDuration">3:45</span>
+        </div>
+
+        <div class="main-controls">
+          <button id="prevBtn"><img src="images/icons8-prev-30.png" class="ppnp2" /></button>
+          <button id="playPauseBtn"><img src="images/icons8-play-50.png" class="ppnp" /></button>
+          <button id="nextBtn"><img src="images/icons8-next-30.png" class="ppnp2" /></button>
+        </div>
+      </div>
+    </div>
+</div>
 
         <script src="static/mysearchpage.js"></script>
 </body>

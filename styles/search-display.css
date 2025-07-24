@@ -135,7 +135,8 @@ h2 {
   display: flex;
   justify-content: space-between;
   margin-bottom: 1rem;
-  background-image: url('images/header\ background.png');
+  margin-right: 0;
+  background-image: url('styles/images/header\ background.png');
 }
 .back_img {
   width: 30px;
@@ -187,7 +188,7 @@ h2 {
   display: flex;
   flex-direction: column;
 }
-.selectsongs {
+.musicInfo {
   max-width: 1050px;
   height: 80px;
   background-color: #27201d;

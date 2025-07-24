@@ -62,7 +62,6 @@ function showPlayer(song) {
   songTitle.textContent = song.title;
   songArtist.textContent = song.artist;
   songDuration.textContent = song.duration;
-  songImage.src = song.artistImage;
   currentTime.textContent = "1:23"; // Replace with real time tracking
 
   fullPlayer.classList.remove('hidden');

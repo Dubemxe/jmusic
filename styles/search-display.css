@@ -136,7 +136,7 @@ h2 {
   justify-content: space-between;
   margin-bottom: 1rem;
   margin-right: 0;
-  background-image: url('styles/images/header\ background.png');
+  background-image: url('images/header\ background.png');
 }
 .back_img {
   width: 30px;
@@ -182,7 +182,7 @@ h2 {
   margin-bottom: 0.5rem;
   margin-left: 3rem;
 }
-.songlist {
+.musicList {
   max-height: auto;
   margin-left: 3rem;
   display: flex;

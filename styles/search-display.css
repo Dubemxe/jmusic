@@ -1,0 +1,241 @@
+/* Base */
+html {
+  margin: 0;
+  padding: 0;
+}
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  color: white;
+  background-color: #000;
+  margin: 0;
+}
+p {
+  font-size: 26px;
+  font-weight: bolder;
+  margin: 0;
+  margin-top: 28px;
+}
+h2 {
+  margin-bottom: 5px;
+}
+/* Layout */
+.container {
+  display: grid;
+  grid-template-columns: 1fr 0;
+  transition: grid-template-columns 0.3s ease;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+}
+
+/* Left Section */
+.songlist_sec {
+  background-color: black;
+  padding: 1rem;
+  overflow-x: auto;
+}
+
+/* Right Section - Full Player */
+.full-player {
+  background-color: #644f45;
+  overflow: hidden;
+  transition: all 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  padding: 1rem;
+}
+
+/* Adjusted Elements */
+.player-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid #eee;
+  margin-bottom: 2rem;
+}
+#closeBtn {
+  width: 37px;
+  height: 37px;
+  cursor: pointer;
+}
+.songImage {
+  width: 450px;
+  height: 360px;
+  object-fit: cover;
+  margin-left: 60px;
+  border-radius: 2px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.678);
+  margin: 0 auto;
+  display: block;
+  object-fit: cover;
+}
+
+.song-info {
+  text-align: center;
+  margin: 1rem 0;
+}
+.extra-controls {
+  display: flex;
+  justify-content: space-between;
+  padding: 0 2rem;
+  margin-bottom: 1rem;
+}
+#favBtn {
+  font-size: 2rem;
+  background: none;
+  border: none;
+  color: white;
+  cursor: pointer;
+}
+#favBtn.active {
+  color: red;
+}
+.shff {
+  width: 30px;
+  height: 30px;
+}
+
+.progress-bar {
+  height: 6px;
+  background-color: #e0e0e0;
+  border-radius: 4px;
+  margin: 1rem auto;
+  width: 80%;
+}
+.progress-filled {
+  background-color: #c4b39b;
+  height: 100%;
+  width: 33%;
+}
+.time-display {
+  display: flex;
+  justify-content: space-between;
+  padding: 0 2rem;
+  font-weight: bold;
+}
+
+.main-controls {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  margin-top: 1rem;
+}
+.ppnp, .ppnp2 {
+  width: 40px;
+  height: 40px;
+}
+
+/* Header */
+.homeheader {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 1rem;
+  background-image: url('images/header\ background.png');
+}
+.back_img {
+  width: 30px;
+  height: 30px;
+  cursor: pointer;
+}
+.search_sec {
+  display: flex;
+  margin-bottom: 40px;
+
+}
+.searchbar {
+  padding: 0.5rem;
+  height: 46px;
+  border: none;
+  background-color: #333;
+  color: white;
+  width: 580px;
+  border-radius: 7px 0 0 7px;
+}
+.searchBtn {
+  background-color: #444;
+  border: none;
+  color: white;
+  padding: 0.5rem 1rem;
+  border-radius: 0 7px 7px 0;
+  cursor: pointer;
+}
+.searchimg {
+    width: 22px;
+    height: 22px;
+}
+.actimg {
+  width: 70px;
+  height: 70px;
+  margin-right: 80px;
+  margin-top: 65px;
+  border-radius: 25px;
+  cursor: pointer;
+}
+.subtext {
+  margin-top: 1rem;
+  margin-bottom: 0.5rem;
+  margin-left: 3rem;
+}
+.songlist {
+  max-height: auto;
+  margin-left: 3rem;
+  display: flex;
+  flex-direction: column;
+}
+.selectsongs {
+  max-width: 1050px;
+  height: 80px;
+  background-color: #27201d;
+  border-bottom: 1px solid #ebbb1d2f;
+  padding: 1rem;
+  align-items: center;
+  padding-top: 0;
+  padding-bottom: 2rem;
+  cursor: pointer;
+}
+
+/* Layout */
+.container {
+  width: 100vw;
+  height: 100vh;
+  display: grid;
+  grid-template-columns: 1fr 0;
+}
+.container.with-panel {
+  grid-template-columns: 1fr 600px;
+}
+
+
+/* Left Side */
+.songlist_sec {
+  background-color: black;
+  padding: 1rem;
+  max-width: 1243px;
+}
+
+/* Slide-in Right Panel */
+.full-player {
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: 542px;
+  height: 100vh;
+  background-color: #644f45;
+  transform: translateX(100%);
+  transition: transform 0.4s ease;
+  z-index: 999;
+  display: flex;
+  flex-direction: column;
+  padding: 1rem;
+  overflow-y: auto;
+}
+
+/* Show panel */
+.full-player.show {
+  transform: translateX(0%);
+}

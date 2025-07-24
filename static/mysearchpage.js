@@ -1,3 +1,122 @@
+const fullPlayer = document.getElementById('fullPlayer');
+const closeBtn = document.getElementById('closeBtn');
+const openBtn = document.getElementById('openPlayerBtn');
+const container = document.querySelector('.container');
+const openFp = document.getElementById('ofp');
+
+
+function openFullPlayer() {
+  fullPlayer.classList.add('show');
+}
+
+function closeFullPlayer() {
+  fullPlayer.classList.remove('show');
+
+  const leftSide = document.getElementById('leftside');
+  const searchBar = document.getElementById('searchbar');
+  const accImg = document.getElementById('accimg');
+
+  searchBar.style.width = "800px";
+  leftSide.style.width = "1241px";
+  accImg.style.marginLeft = "150px";
+  accImg.style.marginRight = "0";
+}
+
+function adjustSize() {
+  const leftSide = document.getElementById('leftside');
+  const searchBar = document.getElementById('searchbar');
+  const searchBtn = document.getElementsByClassName('searchBtn')
+
+  searchBar.style.width = "300px";
+  leftSide.style.width = "700px";
+  searchBtn.style.marginRight = "30px";
+
+}
+closeBtn.addEventListener('click', closeFullPlayer);
+
+const songImage = document.getElementById('songImage');
+const songTitle = document.getElementById('songTitle');
+const songArtist = document.getElementById('songArtist');
+const songDuration = document.getElementById('songDuration');
+const currentTime = document.getElementById('currentTime');
+
+const playPauseBtn = document.getElementById('playPauseBtn');
+const favBtn = document.getElementById('favBtn');
+const shuffleBtn = document.getElementById('shuffleBtn');
+const prevBtn = document.getElementById('prevBtn');
+const nextBtn = document.getElementById('nextBtn');
+
+let isPlaying = false;
+let isFavorited = false;
+
+// Simulated song object
+const sampleSong = {
+  title: "Lose Yourself",
+  artist: "Eminem",
+  duration: "5:26",
+  artistImage: "https://i.scdn.co/image/ab67616d0000b273dff7e6223f9a7ff3bce8aa55"
+};
+
+// Initialize player
+function showPlayer(song) {
+  songTitle.textContent = song.title;
+  songArtist.textContent = song.artist;
+  songDuration.textContent = song.duration;
+  songImage.src = song.artistImage;
+  currentTime.textContent = "1:23"; // Replace with real time tracking
+
+  fullPlayer.classList.remove('hidden');
+}
+
+// Controls
+playPauseBtn.addEventListener('click', () => {
+  isPlaying = !isPlaying;
+  playPauseBtn.innerHTML = isPlaying
+  ? '<img src="images/icons8-pause-64 (1).png" class="ppnp" alt="Pause">'
+  : '<img src="images/icons8-play-50.png" class="ppnp" alt="Play">';
+});
+
+favBtn.addEventListener('click', () => {
+  isFavorited = !isFavorited;
+  favBtn.classList.toggle('active');
+  favBtn.textContent = isFavorited ? '❤️' : '♡';
+});
+
+closeBtn.addEventListener('click', () => {
+  fullPlayer.classList.add('hidden');
+});
+
+shuffleBtn.addEventListener('click', () => {
+  alert("Shuffle toggled!");
+});
+
+prevBtn.addEventListener('click', () => {
+  alert("Previous track");
+});
+
+nextBtn.addEventListener('click', () => {
+  alert("Next track");
+});
+
+// Launch player
+showPlayer(sampleSong);
+
+
+// When user clicks the close (X) button
+closeBtn.addEventListener('click', () => {
+  fullPlayer.style.display = 'none';
+  container.classList.add('expanded');
+  openBtn.classList.remove('hidden');
+});
+
+// When user clicks the "Now Playing" button
+openBtn.addEventListener('click', () => {
+  fullPlayer.style.display = 'flex';
+  container.classList.remove('expanded');
+  openBtn.classList.add('hidden');
+});
+
+
 function changeUrl(url) {
   window.location.href = url;
   }

@@ -134,13 +134,13 @@ h2 {
 .homeheader {
   display: flex;
   justify-content: space-between;
+  margin: 0;
   margin-bottom: 1rem;
-  margin-right: 0;
   background-image: url('images/Banner_Art.png');
 }
 .back_img {
-  width: 37px;
-  height: 37px;
+  width: 47px;
+  height: 47px;
   cursor: pointer;
 }
 .searchtxt {
@@ -160,7 +160,7 @@ h2 {
   border: none;
   background-color: #333;
   color: white;
-  width: 680px;
+  width: 770px;
   border-radius: 7px 0 0 7px;
 }
 .searchBtn {
@@ -176,8 +176,8 @@ h2 {
     height: 22px;
 }
 .actimg {
-  width: 80px;
-  height: 80px;
+  width: 90px;
+  height: 90px;
   margin-right: 80px;
   margin-top: 65px;
   border-radius: 25px;

@@ -136,12 +136,18 @@ h2 {
   justify-content: space-between;
   margin-bottom: 1rem;
   margin-right: 0;
-  background-image: url('images/header\ background.png');
+  background-image: url('images/Banner_Art.png');
 }
 .back_img {
-  width: 30px;
-  height: 30px;
+  width: 37px;
+  height: 37px;
   cursor: pointer;
+}
+.searchtxt {
+  font-size: 26px;
+  font-weight: bolder;
+  margin: 0;
+  margin-top: 28px;
 }
 .search_sec {
   display: flex;
@@ -150,11 +156,11 @@ h2 {
 }
 .searchbar {
   padding: 0.5rem;
-  height: 46px;
+  height: 51px;
   border: none;
   background-color: #333;
   color: white;
-  width: 580px;
+  width: 680px;
   border-radius: 7px 0 0 7px;
 }
 .searchBtn {
@@ -170,8 +176,8 @@ h2 {
     height: 22px;
 }
 .actimg {
-  width: 70px;
-  height: 70px;
+  width: 80px;
+  height: 80px;
   margin-right: 80px;
   margin-top: 65px;
   border-radius: 25px;

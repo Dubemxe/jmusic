@@ -135,6 +135,7 @@ h2 {
   display: flex;
   justify-content: space-between;
   margin: 0;
+  width: 100%;
   margin-bottom: 1rem;
   background-image: url('images/Banner_Art.png');
 }
@@ -144,7 +145,7 @@ h2 {
   cursor: pointer;
 }
 .searchtxt {
-  font-size: 26px;
+  font-size: 33px;
   font-weight: bolder;
   margin: 0;
   margin-top: 28px;
@@ -152,6 +153,7 @@ h2 {
 .search_sec {
   display: flex;
   margin-bottom: 40px;
+  margin-right: 120px;
 
 }
 .searchbar {
@@ -160,7 +162,7 @@ h2 {
   border: none;
   background-color: #333;
   color: white;
-  width: 770px;
+  width: 800px;
   border-radius: 7px 0 0 7px;
 }
 .searchBtn {

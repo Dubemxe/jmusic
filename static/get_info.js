@@ -96,11 +96,18 @@ async function getArtistInfo(artistName) {
     // Handle the display in HTML format
     const artistInfoHTML = `
       <div>
+           <div class="image-wrapper">
         <img src="${artist.images[0].url}" alt="${artist.name}" class="artist_image">
+        <div class="add-btn">+</div>
+
+    </div>
 
         <h2 class="name">${artist.name}</h2>
+        
+    <div class="artist-stats">
         <p class="followers">${fmtCount(artist.followers.total)} Followers</p>
         <p class="rating"> ${artist.popularity}% Spotify Rating</p>
+              </div>
       </div>
     `;
      return  { artistInfoHTML, trackIds };

@@ -311,7 +311,7 @@ body{
   background-color: rgb(0, 0, 17);
   display: grid;
   margin-left: 14px;
-  width: 608px;
+  width: 50%;
   margin-top: 0px;
   grid-template-columns: 0.5fr 0.5fr 0.5fr;
 }

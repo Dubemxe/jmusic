@@ -1,223 +1,258 @@
-function changeUrl(url) {
-                window.location.href = url;
-                }
-
-
-const selectedArtists = [];
-
-document.addEventListener("click", function(e){
-
-    if(!e.target.classList.contains("add-btn")) return;
-
-    const btn = e.target;
-    const card = btn.closest(".artist-card");
-    const artistName = card.dataset.artist;
-
-    if(btn.classList.contains("selected")){
-
-        // REMOVE selection
-        btn.classList.remove("selected");
-        btn.innerHTML = "+";
-
-        const index = selectedArtists.indexOf(artistName);
-        if(index > -1){
-            selectedArtists.splice(index,1);
-        }
-
-    }else{
-
-        // ADD selection
-        btn.classList.add("selected");
-        btn.innerHTML = "✓";
-
-        selectedArtists.push(artistName);
-
-    }
-
-    console.log("Selected artists:", selectedArtists);
-
-});
 async function getTrackIdsByArtist(artistName) {
   try {
 
-    // Encode the artist name for use in the URL
     const encodedArtistName = encodeURIComponent(artistName);
 
-    // Construct the search URL for tracks by the artist
-    const searchUrl = `https://v1.nocodeapi.com/jmusicdn1/spotify/uGxXHgbuCDfpIJMm/search?q=${encodedArtistName}&type=track`;
+    const searchUrl =
+      `https://v1.nocodeapi.com/jmusicdm/spotify/KAIfcEwQNVgCQtXA/search?q=${encodedArtistName}&type=track`;
 
-    // Make a GET request to the search URL with the Spotify API access token
     const response = await fetch(searchUrl);
 
-    // Check if the response is successful
     if (!response.ok) {
-      throw new Error('Failed to fetch tracks by artist');
+      throw new Error("Failed to fetch tracks by artist");
     }
 
-    // Parse the response JSON
     const data = await response.json();
-        let trackIds = data.tracks.items.map(item => item.id);
 
-    // Set limit to 5
-    trackIds = trackIds.slice(0, 5);
+    let trackIds = data.tracks.items.map(item => item.id);
 
-   
+    trackIds = trackIds.slice(0, 5); // top 5
+
     return trackIds;
+
   } catch (error) {
-    console.error('Error fetching track IDs by artist:', error);
+    console.error("Error fetching track IDs:", error);
     return [];
   }
 }
 
-async function myTop5(artistNames) {
 
-    let allTrackIds = [];
+async function myrepTop5(artistNames) {
 
-    for (const artist of artistNames) {
-        const trackIds = await getTrackIdsByArtist(artist);
+  let allTrackIds = [];
 
-        allTrackIds = allTrackIds.concat(trackIds);
-    }
+  for (const artist of artistNames) {
 
-    allTrackIds.sort(() => 0.5 - Math.random());
+    const trackIds = await getTrackIdsByArtist(artist);
 
-    const encodedTrackIds = encodeURIComponent(allTrackIds.join(','));
+    console.log(`Track IDs for ${artist}:`, trackIds);
 
-    window.location.href = `mysearchpage.html#trackIds=${encodedTrackIds}`;
-}
+    allTrackIds = allTrackIds.concat(trackIds);
+  }
 
-function toSearchpage() {
-
-    if (selectedArtists.length > 0) {
-        myTop5(selectedArtists);
-    } else {
-        alert("Select at least one artist");
-    }
-
+  return allTrackIds;
 }
 
 
-// get info function
-async function getArtistInfo(artistName) {
+
+let selectedTrackIds = [];
+
+async function addToFavorites(checkbox) {
+
+  const artistName = checkbox.getAttribute("data-artist");
+
+  const trackIds = await myrepTop5([artistName]);
+
+  if (checkbox.checked) {
+
+    trackIds.forEach(trackId => {
+
+      if (!selectedTrackIds.includes(trackId)) {
+
+        selectedTrackIds.push(trackId);
+
+        console.log("Added:", trackId);
+
+      }
+
+    });
+
+  } else {
+
+    trackIds.forEach(trackId => {
+
+      selectedTrackIds = selectedTrackIds.filter(id => id !== trackId);
+
+      console.log("Removed:", trackId);
+
+    });
+
+  }
+
+  console.log("Selected Tracks:", selectedTrackIds);
+}
+
+
+
+async function getArtistBio(artistName) {
+
+  const apiKey = "15e5f9128c80ca2ea5b7bb90bbcda271";
+
+  const bioUrl =
+    `https://ws.audioscrobbler.com/2.0/?method=artist.getinfo&artist=${encodeURIComponent(artistName)}&api_key=${apiKey}&format=json`;
+
   try {
-          const accessToken =  '';
-    const searchUrl = `https://v1.nocodeapi.com/jmusicdm1/spotify/uWWdmvHDFKQQHmLq/search?q=${encodeURIComponent(artistName)}&type=artist`;
+
+    const response = await fetch(bioUrl);
+
+    const data = await response.json();
+
+    if (data.artist && data.artist.bio && data.artist.bio.summary) {
+      return data.artist.bio.summary;
+    }
+
+    return "Biography not available.";
+
+  } catch (error) {
+
+    console.error("Error fetching artist bio:", error);
+
+    return "Error fetching biography.";
+  }
+}
+
+
+function popupaDiv() {
+
+  const contentDiv = document.getElementById("searchbackDiv");
+
+  const isHidden =
+    window.getComputedStyle(contentDiv).display === "none";
+
+  contentDiv.style.display = isHidden ? "block" : "none";
+
+}
+
+
+async function searchArtist() {
+
+  const artistQuery =
+    document.getElementById("artistSearchInput").value.trim();
+
+  if (!artistQuery) {
+    alert("Please enter an artist name");
+    return;
+  }
+
+  const searchUrl =
+    `https://v1.nocodeapi.com/jmusicdm/spotify/KAIfcEwQNVgCQtXA/search?q=${encodeURIComponent(artistQuery)}&type=artist`;
+
+  try {
 
     const response = await fetch(searchUrl);
 
     if (!response.ok) {
-      throw new Error('Failed to fetch artist info');
+      throw new Error("Failed to fetch artist data");
     }
-    const searchData = await response.json();
-    const artist = searchData.artists.items[0];
+
+    const data = await response.json();
+
+    const artist = data.artists.items[0];
+
     if (!artist) {
-      return '<div>Artist not available</div>';
+      console.log("No artist found.");
+      return;
     }
 
-// Extract track IDs from the artist's top tracks
-    const topTracksResponse = await fetch(artist.href /*+ '/top-tracks?country=US'*/, {
-      headers: {
-        'Authorization': `Bearer ${accessToken}`
-      }
-    });
+    const searchResultsContainer =
+      document.getElementById("searchbackDiv");
 
-    //  Extracting the artist's top track IDs
-    const topTrackIds = await topTracksResponse.json();
+    searchResultsContainer.innerHTML = "";
 
-    // Handle the display in HTML format
-    const artistInfoHTML = `
-      <div>
-           <div class="image-wrapper">
-        <img src="${artist.images[0].url}" alt="${artist.name}" class="artist_image">
-        <div class="add-btn">+</div>
+    const artistBio = await getArtistBio(artist.name);
 
-    </div>
-
-        <h2 class="name">${artist.name}</h2>
-        
-    <div class="artist-stats">
-        <p class="followers">${fmtCount(artist.followers.total)} Followers</p>
-        <p class="rating"> ${artist.popularity}% Spotify Rating</p>
-              </div>
+    const trackHTML = `
+    
+      <div class="div1">
+        <p class="searchtxt">Search Results</p>
+        <img src="styles/images/icons8-x-50 white.png"
+             class="imgd"
+             onclick="popupaDiv()">
       </div>
+
+      <div id="divdd2">
+
+        <div class="imge"
+             style="background-image:url('${artist.images[0]?.url || "styles/images/adPic.jpg"}');">
+
+          <div class="checkdiv">
+
+            <input type="checkbox"
+                   class="checkerdh"
+                   value="${artist.name}"
+                   data-artist="${artist.name}"
+                   onclick="addToFavorites(this)">
+
+          </div>
+
+          <div class="bdiv">
+            <p class="mark_artistname">${artist.name}</p>
+          </div>
+
+        </div>
+
+      </div>
+
+      <p class="bio">${artistBio}</p>
+
     `;
-  return { artistInfoHTML };
+
+    searchResultsContainer.innerHTML = trackHTML;
+
+    // OPEN PANEL
+    popupaDiv();
+
   } catch (error) {
-    console.error('Error fetching artist info:', error);
-    return '<div>Error fetching artist info</div>';
+
+    console.error("Error fetching artist data:", error);
+
   }
 }
 
-function fmtCount(count) {
-    if (count >= 1000000) {
-        return (count / 1000000).toFixed(1).replace(/\.0$/, '') + 'M';
-    } else if (count >= 1000) {
-        return Math.floor(count / 1000) + 'K';
-    } else {
-        return count.toString();
+
+
+document
+  .getElementById("artistSearchInput")
+  .addEventListener("keydown", function (event) {
+
+    if (event.key === "Enter") {
+      document.getElementById("searchBtn").click();
     }
+
+  });
+
+
+
+function completeList() {
+
+  if (selectedTrackIds.length === 0) {
+
+    alert("Please select at least one artist.");
+
+    return;
+  }
+
+  const encodedTrackIds =
+    encodeURIComponent(selectedTrackIds.join(","));
+
+  window.location.href =
+    `mysearchpage.html#trackIds=${encodedTrackIds}`;
+
 }
 
 
-const artists = [
-    "Drake",
-    "Davido",
-    "21 Savage",
-    "Burna Boy",
-    "Future",
-    "Wizkid",
-    "Travis Scott",
-    "Gunna",
-    "Lil Baby",
-    "Tems",
-    "Metro Boomin",
-    "Young thug",
-    "Billie Eilish",
-    "rihanna",
-    "sza"
-];
-
-const artistGrid = document.getElementById("artistGrid");
-
-// shuffle artists
-const shuffledArtists = artists.sort(() => 0.5 - Math.random());
-
-// num of cards
-const numberOfCards = 9;
-
-shuffledArtists.slice(0, numberOfCards).forEach(artistName => {
-
-    const card = document.createElement("div");
-      card.classList.add("artist-card");
-      card.dataset.artist = artistName;  
-      
-      card.innerHTML = `
-      <div class="artistInfo">Loading...</div>
-      `;
 
 
-    artistGrid.appendChild(card);
+function formatFollowers(count) {
 
-    const infoDiv = card.querySelector(".artistInfo");
+  if (count >= 1e6) {
+    return (count / 1e6).toFixed(1) + "M";
+  }
 
-    getArtistInfo(artistName)
-        .then(({ artistInfoHTML, trackIds }) => {
-            infoDiv.innerHTML = artistInfoHTML;
-        });
+  if (count >= 1e3) {
+    return Math.round(count / 1e3) + "K";
+  }
 
-});
-
-
-
-const panel = document.getElementById("sidePanel");
-const openBtn = document.getElementById("menuBtn");
-const closeBtn = document.getElementById("closePanel");
-
-openBtn.addEventListener("click", () => {
-    panel.classList.add("active");
-});
-
-closeBtn.addEventListener("click", () => {
-    panel.classList.remove("active");
-});
+  return count;
+}
 

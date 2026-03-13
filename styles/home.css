@@ -2,8 +2,10 @@ body{
     background:black;
     font-family:'Inter',sans-serif;
     display:flex;
-    justify-content:center;
     align-items:center;
+}
+.everything_box {
+    width: 100%;
 }
 #artistGrid{
     display:grid;

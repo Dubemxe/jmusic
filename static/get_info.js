@@ -209,3 +209,16 @@ document.addEventListener("click", function(e){
     console.log("Selected artists:", selectedArtists);
 
 });
+
+const panel = document.getElementById("sidePanel");
+const openBtn = document.getElementById("menuBtn");
+const closeBtn = document.getElementById("closePanel");
+
+openBtn.addEventListener("click", () => {
+    panel.classList.add("active");
+});
+
+closeBtn.addEventListener("click", () => {
+    panel.classList.remove("active");
+});
+

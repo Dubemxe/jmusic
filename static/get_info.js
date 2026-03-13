@@ -127,33 +127,6 @@ function fmtCount(count) {
     }
 }
 
-// Use put the display in  div1
-
-const artistName = 'Drake';
-const artistInfoDiv = document.getElementById('artistInfo');
-
-getArtistInfo(artistName)
-  .then(({ artistInfoHTML, trackIds }) => {
-    artistInfoDiv.innerHTML = artistInfoHTML;
-  });
-// for div2
-const artistName2 = 'Davido';
-const artistInfoDiv2 = document.getElementById('artistInfo2');
-
-getArtistInfo(artistName2)
-  .then(({ artistInfoHTML, trackIds }) => {
-    artistInfoDiv2.innerHTML = artistInfoHTML;
-  });
-
-// for div3
-const artistName3 = '21';
-const artistInfoDiv3 = document.getElementById('artistInfo3');
-
-getArtistInfo(artistName3)
-  .then(({ artistInfoHTML, trackIds }) => {
-    artistInfoDiv3.innerHTML = artistInfoHTML;
-  });
-// for div4
 
 const artists = [
     "Drake",
@@ -166,7 +139,8 @@ const artists = [
     "Gunna",
     "Lil Baby",
     "Tems",
-    "Metro Boomin"
+    "Metro Boomin",
+    "Young thug"
 ];
 
 const artistGrid = document.getElementById("artistGrid");
@@ -195,5 +169,29 @@ shuffledArtists.slice(0, numberOfCards).forEach(artistName => {
         .then(({ artistInfoHTML, trackIds }) => {
             infoDiv.innerHTML = artistInfoHTML;
         });
+
+});
+
+
+const selectedArtists = [];
+
+document.addEventListener("click", function(e){
+
+    if(!e.target.classList.contains("add-btn")) return;
+
+    const btn = e.target;
+    const card = btn.closest(".artist-card");
+    const artistName = card.dataset.artist;
+
+    if(!selectedArtists.includes(artistName)){
+
+        selectedArtists.push(artistName);
+
+        btn.classList.add("selected");
+        btn.innerHTML = "✓";
+
+    }
+
+    console.log(selectedArtists);
 
 });

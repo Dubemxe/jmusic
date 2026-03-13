@@ -11,7 +11,7 @@ async function getTrackIdsByArtist(artistName) {
     const encodedArtistName = encodeURIComponent(artistName);
 
     // Construct the search URL for tracks by the artist
-    const searchUrl = `https://v1.nocodeapi.com/jmusicdm/spotify/KAIfcEwQNVgCQtXA/search?q=${encodedArtistName}&type=track`;
+    const searchUrl = `https://v1.nocodeapi.com/jmusicdn1/spotify/uGxXHgbuCDfpIJMm/search?q=${encodedArtistName}&type=track`;
 
     // Make a GET request to the search URL with the Spotify API access token
     const response = await fetch(searchUrl);
@@ -69,7 +69,7 @@ function toSearchpage() {
 async function getArtistInfo(artistName) {
   try {
           const accessToken =  '';
-    const searchUrl = `https://v1.nocodeapi.com/jmusicdm/spotify/KAIfcEwQNVgCQtXA/search?q=${encodeURIComponent(artistName)}&type=artist`;
+    const searchUrl = `https://v1.nocodeapi.com/jmusicdm1/spotify/uWWdmvHDFKQQHmLq/search?q=${encodeURIComponent(artistName)}&type=artist`;
 
     const response = await fetch(searchUrl);
 
@@ -91,7 +91,7 @@ async function getArtistInfo(artistName) {
 
     //  Extracting the artist's top track IDs
     const topTrackIds = await topTracksResponse.json();
-    const trackIds =  getTrackIdsByArtist(); //topTrackIds.tracks.map(track => track.id);
+    const trackIds =  getTrackIdsByArtist(); 
 
     // Handle the display in HTML format
     const artistInfoHTML = `

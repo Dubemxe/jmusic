@@ -154,63 +154,46 @@ getArtistInfo(artistName3)
     artistInfoDiv3.innerHTML = artistInfoHTML;
   });
 // for div4
-const artistName4 = 'Phyno';
-const artistInfoDiv4 = document.getElementById('artistInfo4');
 
-getArtistInfo(artistName4)
-  .then(({ artistInfoHTML, trackIds }) => {
-    artistInfoDiv4.innerHTML = artistInfoHTML;
-  });
-// for div5
-const artistName5 = 'Tyler The';
-const artistInfoDiv5 = document.getElementById('artistInfo5');
+const artists = [
+    "Drake",
+    "Davido",
+    "21 Savage",
+    "Burna Boy",
+    "Future",
+    "Wizkid",
+    "Travis Scott",
+    "Gunna",
+    "Lil Baby",
+    "Tems",
+    "Metro Boomin"
+];
 
-getArtistInfo(artistName5)
-  .then(({ artistInfoHTML, trackIds }) => {
-    artistInfoDiv5.innerHTML = artistInfoHTML;
-  });
+const artistGrid = document.getElementById("artistGrid");
 
-// for div6
-const artistName6 = 'Gunna';
-const artistInfoDiv6 = document.getElementById('artistInfo6');
+// shuffle artists
+const shuffledArtists = artists.sort(() => 0.5 - Math.random());
 
-getArtistInfo(artistName6)
-  .then(({ artistInfoHTML, trackIds }) => {
-    artistInfoDiv6.innerHTML = artistInfoHTML;
-  });
+// num of cards
+const numberOfCards = 6;
 
-// for div7
-const artistName7 = 'Tyla';
-const artistInfoDiv7 = document.getElementById('artistInfo7');
+shuffledArtists.slice(0, numberOfCards).forEach(artistName => {
 
-getArtistInfo(artistName7)
-  .then(({ artistInfoHTML, trackIds }) => {
-    artistInfoDiv7.innerHTML = artistInfoHTML;
-  });
-// for div8
-const artistName8 = 'NLE';
-const artistInfoDiv8 = document.getElementById('artistInfo8');
+    const card = document.createElement("div");
+    card.classList.add("artist-card");
 
-getArtistInfo(artistName8)
-  .then(({ artistInfoHTML, trackIds }) => {
-    artistInfoDiv8.innerHTML = artistInfoHTML;
-  });
+    card.innerHTML = `
+        <input type="checkbox" value="${artistName}" class="hidden-checkbox">
+        <div class="artistInfo">Loading...</div>
+    `;
 
+    artistGrid.appendChild(card);
 
-// for div9
-const artistName9 = 'Kendrick';
-const artistInfoDiv9 = document.getElementById('artistInfo9');
+    const infoDiv = card.querySelector(".artistInfo");
 
-getArtistInfo(artistName9)
-  .then(({ artistInfoHTML, trackIds }) => {
-    artistInfoDiv9.innerHTML = artistInfoHTML;
-  });
+    getArtistInfo(artistName)
+        .then(({ artistInfoHTML, trackIds }) => {
+            infoDiv.innerHTML = artistInfoHTML;
+        });
 
-// for div10
-const artistName10 = 'BigxTha';
-const artistInfoDiv10 = document.getElementById('artistInfo10');
-
-getArtistInfo(artistName10)
-  .then(({ artistInfoHTML, trackIds }) => {
-    artistInfoDiv10.innerHTML = artistInfoHTML;
-  });
+});

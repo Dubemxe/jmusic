@@ -11,14 +11,6 @@ body{
     gap:20px;
     justify-content:center;
 }
-.select_boxes {
-  background-color: rgb(0, 0, 17);
-  display: grid;
-  margin-left: 14px;
-  width: 50%;
-  margin-top: 0px;
-;
-}
 
 .artist-card{
     width:215px;
@@ -112,92 +104,83 @@ body{
 .artist-stats p{
     margin:3px 0;
 }
-.mycontainer {
-  width: 100%;
-  margin: 0px;
-  background-color: rgb(0, 0, 17);
-  display: flex;
-  flex-direction: column;
-}
-.funSide {
-  background-color: rgb(0, 0, 17);
-  margin-left: 48px;
-  width: 775px;
-  height: 1380px;
-  justify-items: center;
-  }
-.disArts {
-    width: 585px;
-    height: 410px;
-    margin-top: 90px;
-    margin-left: 0px;
-    margin-bottom: 15px;
-  }
-  .adDiv {
-    width: 520px;
-    height: 630px;
-    background-color: rgb(30, 30, 32);
-    border-radius: 40px;
-    justify-items: center;
-    padding-top: 18px;
-    margin-top: 115px;
-  }
-  .fline {
-  margin-bottom: 0px;
-  color: rgb(255, 136, 0);
-  margin-top: 15px;
-}
-.sline {
-  margin: 0px;
-  font-size: 29px;
-  color: whitesmoke;
-  margin-bottom: 35px;
-  font-family: Cochin;
-}
-.adPic {
-  width: 380px;
-  height: 430px;
-}
-.everything_box {
-        width: 100%;
-        margin: 0px;
-        background-color: black;
-}
-.tooBox {
-  display: flex;
-  flex-direction: row;
-  background-color:  rgb(0, 0, 17);
+.home-wrapper{
+    width:100%;
+    display:flex;
+    justify-content:center;
 }
 
-.p1 {
-  font-weight: bold;
-  margin-top: 20px;
-  color: whitesmoke;
-  font-size: 58px;
-  margin-bottom: 0px;
-  margin-left: 125px;
-  margin-top: 0px;
+.home-container{
+    width:90%;
+    max-width:1300px;
+    display:flex;
+    gap:40px;
+    margin-top:40px;
 }
-.p2 {
-  margin-top: 0px;
-  color: #FFFF00;
-  font-size: 32px;
-  font-weight: bold;
-  margin-left: 140px;
+.artists-section{
+    flex:2;
+    background:#020212;
+    padding:25px;
+    border-radius:12px;
 }
-.p3 {
-  font-weight: bold;
-  color: whitesmoke;
-  margin-top: 15px;
-  font-size: 34px;
 
+.section-header{
+    margin-bottom:20px;
 }
-.Np3 {
-  font-weight: bold;
-  color: whitesmoke;
-  margin-top: 7px;
-  font-size: 28x;
+
+.section-title{
+    font-size:28px;
+    font-weight:700;
+    color:white;
 }
+.artist-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fill, minmax(170px,1fr));
+    gap:20px;
+}
+.discover-section{
+    flex:1;
+    display:flex;
+    flex-direction:column;
+    gap:20px;
+}
+.discover-banner{
+    width:100%;
+    border-radius:12px;
+}
+.discover-title{
+    color:white;
+    font-size:22px;
+    font-weight:600;
+}
+.ad-card{
+    background:#0b0b0b;
+    padding:18px;
+    border-radius:12px;
+    text-align:center;
+    transition:transform 0.3s ease;
+}
+
+.ad-card:hover{
+    transform:translateY(-6px);
+}
+.ad-title{
+    color:white;
+    font-size:22px;
+    font-weight:700;
+}
+
+.ad-subtitle{
+    color:#aaa;
+    font-size:14px;
+    margin-bottom:10px;
+}
+
+.ad-img{
+    width:100%;
+    border-radius:10px;
+}
+
 /* HEADER LAYOUT */
 
 .my_header{
@@ -329,39 +312,25 @@ body{
   height: 140px;
   margin-bottom: 15px;
 }
-#dropdownMenu {
-  width: 70px
-  height: 100px;
-}
-#dropdownBtn {
-  width: 10px;
-  height: 10px;
-  border: none;
-  background-color: rgba(8, 8, 8, 0.007);
-  margin-bottom: 24px;
-}
-.butn {
-  height: 65px;
-  width: 200px;
-  border-radius: 60px;
-  border: none;
-  margin-top: 55px;
-  place-self: center;
-  color: white;
-  background-color: #00BCD4;
-  font-size: 20px;
-  font-weight: bolder;
-  cursor: pointer;
-  box-shadow:  12px 12px 12px rgba(166, 163, 184, 0.062);
-  transition: all 0.3s ease;
-  margin-left: 10px;  
+
+.continue-btn{
+    margin-top:25px;
+    padding:14px 30px;
+    border:none;
+    border-radius:30px;
+    font-size:16px;
+    font-weight:600;
+    background:#1DB954;
+    color:white;
+    cursor:pointer;
+    transition:all 0.25s ease;
 }
 
-.butn:hover {
-  opacity: 0.8;
-  transform: scale(1.1);
-
+.continue-btn:hover{
+    transform:translateY(-2px);
+    box-shadow:0 6px 18px rgba(0,0,0,0.5);
 }
+
 
 .round {
   border-top-left-radius: 22px;

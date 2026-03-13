@@ -15,138 +15,194 @@
 
   <body>
 <div class="everything_box">
-   
-     <div class="header">
-        <div class="my_header">
-          <!-- left section -->
-            <div class="header-left">
-            <img src="styles/images/icons8-user-64.png"
-            class="pic2 profile-btn"
-            id="profileBtn">
-        </div>
+     <!DOCTYPE html>
 
-    <!-- center section -->
-      <div class="search_div">
-        <input 
-          placeholder="Search for your favorites..."
-          class="searchbar"
-          id="artistSearchInput">
-        <button class="searchbtn"
-        id="searchBtn"
-        onclick="searchArtist(); popupaDiv();">
-        <img src="styles/images/icons8-search-48.png" class="img">
-        </button>
-      </div>
+<html lang="en">
 
-    <!-- right section -->
-    <div class="header-right">
-        <img src="styles/images/hamburger-menu2.png"
-        class="pic1 ham_menu"
-        id="menuBtn">
-    </div>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>JMusic</title>
+
+  <!-- Bootstrap -->
+
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+
+  <!-- Main stylesheet -->
+
+  <link rel="stylesheet" href="styles/home.css">
+
+  <!-- Google Fonts -->
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@200..800&display=swap" rel="stylesheet">
+
+  <link href="https://fonts.googleapis.com/css2?family=Kanit:ital,wght@0,300;0,400;0,500;0,600;0,700;1,600;1,700&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+<div class="everything_box">
+
+  <!-- ================= HEADER ================= -->
+
+  <div class="header">
+
+```
+<div class="my_header">
+
+  <!-- Left section : Profile button -->
+  <div class="header-left">
+    <img
+      src="styles/images/icons8-user-64.png"
+      class="pic2 profile-btn"
+      id="profileBtn"
+      alt="Profile menu">
+  </div>
+
+
+  <!-- Center section : Artist search -->
+  <div class="search_div">
+
+    <input
+      placeholder="Search for your favorites..."
+      class="searchbar"
+      id="artistSearchInput">
+
+    <button
+      class="searchbtn"
+      id="searchBtn"
+      onclick="searchArtist(); popupaDiv();">
+
+      <img
+        src="styles/images/icons8-search-48.png"
+        class="img"
+        alt="Search">
+
+    </button>
+
+  </div>
+
+
+  <!-- Right section : Navigation menu toggle -->
+  <div class="header-right">
+    <img
+      src="styles/images/hamburger-menu2.png"
+      class="pic1 ham_menu"
+      id="menuBtn"
+      alt="Open menu">
+  </div>
 
 </div>
 
 
-<!-- SIDE PANEL -->
+<!-- ================= SIDE PANEL ================= -->
+
 <div class="side-panel" id="sidePanel">
 
-    <div class="panel-header">
-        <h3>Menu</h3>
-        <span id="closePanel">✕</span>
-    </div>
+  <div class="panel-header">
+    <h3>Menu</h3>
+    <span id="closePanel">✕</span>
+  </div>
 
-    <ul class="panel-links">
-        <li>About Us</li>
-        <li>Support</li>
-        <li>Settings</li>
-        <li>Account</li>
-        <li>Logout</li>
-    </ul>
+  <ul class="panel-links">
+    <li>About Us</li>
+    <li>Support</li>
+    <li>Settings</li>
+    <li>Account</li>
+    <li>Logout</li>
+  </ul>
 
 </div>
+```
+
+  </div>
+
+  <!-- ================= HOME SECTION ================= -->
+
+  <div class="home-wrapper">
+
+```
+<div class="home-container">
+
+
+  <!-- LEFT AREA : Artist selection -->
+
+  <div class="artists-section">
+
+    <div class="section-header">
+      <p class="section-title">Select Preferred Artists</p>
     </div>
-<div class="home-wrapper">
 
-  <div class="home-container">
+    <!-- Dynamic artist grid populated by JavaScript -->
+    <div id="artistGrid" class="artist-grid"></div>
 
-    <!-- LEFT SECTION -->
-    <div class="artists-section">
+    <!-- Continue to next page -->
+    <button
+      class="continue-btn"
+      onclick="toSearchpage(); completeList();">
 
-      <div class="section-header">
-        <p class="section-title">Select Preferred Artists</p>
-      </div>
+      Continue
 
-      <div id="artistGrid" class="artist-grid"></div>
+    </button>
 
-      <button class="continue-btn" onclick="toSearchpage(); completeList();">
-        Continue
-      </button>
-
-    </div>
-
-
-    <!-- RIGHT SECTION -->
-    <div class="discover-section">
-
-      <div class="discover-section">
-
-<p class="discover-title">Discover New Artists</p>
-
-<div class="carousel" id="artistCarousel">
-
-  <div class="artist-card-stack">
-    <img src="styles/images/drake.jpg">
-    <p>Drake</p>
   </div>
 
-  <div class="artist-card-stack">
-    <img src="styles/images/wizkid.jpg">
-    <p>Wizkid</p>
-  </div>
 
-  <div class="artist-card-stack">
-    <img src="styles/images/burna.jpg">
-    <p>Burna Boy</p>
-  </div>
 
-  <div class="artist-card-stack">
-    <img src="styles/images/future.jpg">
-    <p>Future</p>
-  </div>
+  <!-- RIGHT AREA : Discover artists -->
 
-  <div class="artist-card-stack">
-    <img src="styles/images/tems.jpg">
-    <p>Tems</p>
-  </div>
+  <div class="discover-section">
 
-</div>
+    <p class="discover-title">Discover New Artists</p>
 
-</div>
+        <div class="carousel" id="artistCarousel"></div>
 
-      <div class="ad-card">
 
-        <p class="ad-title">JMusic</p>
-        <p class="ad-subtitle">Home Of Favorites</p>
+    <!-- Promotional card -->
 
-        <img src="styles/images/adPic.jpg" class="ad-img">
+    <div class="ad-card">
 
-      </div>
+      <p class="ad-title">JMusic</p>
+      <p class="ad-subtitle">Home Of Favorites</p>
+
+      <img
+        src="styles/images/adPic.jpg"
+        class="ad-img"
+        alt="JMusic promotion">
 
     </div>
 
   </div>
 
-  <div class="search_back" id="searchbackDiv"></div>
+</div>
+
+
+<!-- Search overlay background -->
+
+<div
+  class="search_back"
+  id="searchbackDiv">
+</div>
+```
+
+  </div>
 
 </div>
 
+<!-- ================= JAVASCRIPT ================= -->
 
 <script src="static/get_info.js"></script>
+
 <script src="static/search_artists.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
 
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+crossorigin="anonymous">
+</script>
 
-  </body>
+</body>
 </html>
-                                  

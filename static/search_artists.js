@@ -216,7 +216,7 @@ async function searchArtist() {
               <div class="checkdiv">
               <input type="checkbox" class="checkerdh" value="${artist.name}" data-artist="${artist.name}" onclick="addToFavorites(this)"> </div>
                    <div class="bdiv">
-              <p class="artistname">${artist.name}</p> </div> </div> </div>
+              <p class="mark_artistname">${artist.name}</p> </div> </div> </div>
               <p class=bio>${artistBio}</p>
           `;
         searchResultsContainer.innerHTML = trackHTML;

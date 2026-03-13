@@ -141,8 +141,8 @@ const artists = [
     "Tems",
     "Metro Boomin",
     "Young thug",
-    "Billie Eilish"
-    "rihanna"
+    "Billie Eilish",
+    "rihanna",
     "sza"
 ];
 

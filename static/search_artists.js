@@ -1,22 +1,47 @@
+async function getSpotifyToken(){
+
+const response = await fetch(
+"https://jmusic-backend.onrender.com/spotify-token"
+);
+
+const data = await response.json();
+
+return data.token;
+
+}
 async function getTrackIdsByArtist(artistName) {
   try {
 
     const encodedArtistName = encodeURIComponent(artistName);
 
-    const searchUrl =
-      `https://v1.nocodeapi.com/jmusicdm/spotify/KAIfcEwQNVgCQtXA/search?q=${encodedArtistName}&type=track`;
+    const searchResponse = await fetch(
+      `https://api.spotify.com/v1/search?q=${encodeURIComponent(artistName)}&type=artist&limit=1`,
+      {
+      headers:{
+      Authorization:`Bearer ${token}`
+      }
+      });
+    const searchData = await searchResponse.json();
+      
+      if(!searchData.artists.items.length){
+      return [];
+      }
+      
+      const artistId = searchData.artists.items[0].id;
+      
+      const topTracksResponse = await fetch(
+      `https://api.spotify.com/v1/artists/${artistId}/top-tracks?market=US`,
+      {
+      headers:{
+      Authorization:`Bearer ${token}`
+      }
+      });
 
-    const response = await fetch(searchUrl);
+  
+    const topTracksData = await topTracksResponse.json();
+    let trackIds = topTracksData.tracks.map(track=>track.id);
 
-    if (!response.ok) {
-      throw new Error("Failed to fetch tracks by artist");
-    }
-
-    const data = await response.json();
-
-    let trackIds = data.tracks.items.map(item => item.id);
-
-    trackIds = trackIds.slice(0, 5); // top 5
+    trackIds = trackIds.slice(0, 8); // top 8
 
     return trackIds;
 
@@ -134,12 +159,19 @@ async function searchArtist() {
     return;
   }
 
-  const searchUrl =
-    `https://v1.nocodeapi.com/jmusicdm/spotify/KAIfcEwQNVgCQtXA/search?q=${encodeURIComponent(artistQuery)}&type=artist`;
-
   try {
 
-    const response = await fetch(searchUrl);
+    // get token from your backend
+    const token = await getSpotifyToken();
+
+    const searchUrl =
+      `https://api.spotify.com/v1/search?q=${encodeURIComponent(artistQuery)}&type=artist&limit=1`;
+
+    const response = await fetch(searchUrl,{
+      headers:{
+        Authorization:`Bearer ${token}`
+      }
+    });
 
     if (!response.ok) {
       throw new Error("Failed to fetch artist data");
@@ -199,7 +231,7 @@ async function searchArtist() {
 
     searchResultsContainer.innerHTML = trackHTML;
 
-    // OPEN PANEL
+    // open right panel
     popupaDiv();
 
   } catch (error) {

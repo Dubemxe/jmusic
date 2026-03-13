@@ -17,8 +17,22 @@
           <img src="styles/images/icons8-left-arrow-50.png" alt="back" class="back_img"  onclick="window.history.back()">
           <p class="searchtxt">Search</p>
           <div class="search_sec">
-            <input type="text"  id="searchQuery" placeholder="" class="searchbar" />
-            <button onclick="searchSong()" class="searchBtn" d="sBtn"> <img src="styles/images/icons8-search-48.png" class="searchimg"> </button>
+             <input
+      placeholder="Search for your favorites..."
+      class="searchbar"
+      id="artistSearchInput">
+
+    <button
+      class="searchbtn"
+      id="searchBtn"
+      onclick="searchArtist(); popupaDiv();">
+
+      <img
+        src="styles/images/icons8-search-48.png"
+        class="img"
+        alt="Search">
+
+    </button>
           </div>
         </div>
         <img src="styles/images/icons8-user-64 (1).png" alt="user" class="actimg" id="accimg" />

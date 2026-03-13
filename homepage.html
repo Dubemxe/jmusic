@@ -15,60 +15,56 @@
 
   <body>
 <div class="everything_box">
- 
+   
+     <div class="header">
+        <div class="my_header">
+          <!-- left section -->
+            <div class="header-left">
+            <img src="styles/images/icons8-user-64.png"
+            class="pic2 profile-btn"
+            id="profileBtn">
+        </div>
 
-       <!-- Offcanvas Sidebar -->
-  <div class="offcanvas offcanvas-end" id="sidebar" tabindex="-1" aria-labelledby="sidebarLabel">
-    <div class="offcanvas-header">
-      <h5 class="offcanvas-title" id="sidebarLabel">JMusic</h5>
-      <button type="button" class="btn-close custom-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
-    </div>
-    <div class="offcanvas-body">
-      <!-- Dropdown Menu -->
-      <ul class="list-group">
-        <p class="section">Light Mode  <img src="styles/images/icons8-light-24.png" class="light-pic"></p>
-        <div class="section"><a  href="#">About Us</a></div>
-        <div class="section"><a  href="#">Support</a></div>
-        <div class="section"><a  href="#">Report a problem</a></div>
+    <!-- center section -->
+      <div class="search_div">
+        <input 
+          placeholder="Search for your favorites..."
+          class="searchbar"
+          id="artistSearchInput">
+        <button class="searchbtn"
+        id="searchBtn"
+        onclick="searchArtist(); popupaDiv();">
+        <img src="styles/images/icons8-search-48.png" class="img">
+        </button>
+      </div>
 
-      </ul>
+    <!-- right section -->
+    <div class="header-right">
+        <img src="styles/images/hamburger-menu2.png"
+        class="pic1 ham_menu"
+        id="menuBtn">
     </div>
-   </div>
-    
-     <ul class="dropdown-menu" id="dropdownMenu">
-      <li class="dropdown-item"> <p class="Dps">
-        <img src="styles/images/icons8-settings-26.png" class="D_pics">Account Settings </p>
-  </li>
-      <li class="dropdown-item"><p class="Dps"> 
-        <img src="styles/images/icons8-logout-48.png" class="D_pics">Logout </p>
-  </li>
+
+</div>
+
+
+<!-- SIDE PANEL -->
+<div class="side-panel" id="sidePanel">
+
+    <div class="panel-header">
+        <h3>Menu</h3>
+        <span id="closePanel">✕</span>
+    </div>
+
+    <ul class="panel-links">
+        <li>About Us</li>
+        <li>Support</li>
+        <li>Settings</li>
+        <li>Account</li>
+        <li>Logout</li>
     </ul>
 
-     <!-- Offcanvas Sidebar -->
-  <div class="offcanvas offcanvas-end" id="sidebar" tabindex="-1" aria-labelledby="sidebarLabel">
-    <div class="offcanvas-header">
-      <h5 class="offcanvas-title" id="sidebarLabel">JMusic</h5>
-      <button type="button" class="btn-close custom-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
-    </div>
-    <div class="offcanvas-body">
-      <!-- Dropdown Menu -->
-      <ul class="list-group">
-        <p class="section">Light Mode  <img src="styles/images/icons8-light-24.png" class="light-pic"></p>
-        <div class="section"><a  href="#">About Us</a></div>
-        <div class="section"><a  href="#">Support</a></div>
-        <div class="section"><a  href="#">Report a problem</a></div>
-
-      </ul>
-    </div>
-   </div>
-     <div class="header">
-    <div class="my_header">
-     <img src="styles/images/icons8-user-64.png" class="pic2" data-bs-toggle="dropdown" aria-expanded="false" aria-controls="dropdownMenu">
-     <div class="search_div">
-      <input placeholder="Search for your Favorites..." class="searchbar"  id="artistSearchInput">
-      <button class="searchbtn" id="searchBtn" onclick="searchArtist(); popupaDiv();"><img src="styles/images/icons8-search-48.png" class="img"></button></div>
-      <img src="styles/images/hamburger-menu2.png" class="pic1 ham_menu" data-bs-toggle="offcanvas" data-bs-target="#sidebar" aria-controls="sidebar">
-  </div>
+</div>
     </div>
  <div class="tooBox">
   <div class="mycontainer">
@@ -77,26 +73,6 @@
 <p class="p3">Select preferred Artists</p></div>
   
   <div class="select_boxes">
-  
-   <div>
-  <div class="artist-card">
-    <input type="checkbox"  value="Drake" class="hidden-checkbox" id="hiddenCheckbox">
-    <div id="artistInfo"></div></div>
-</div>
-    
-<div> 
-  <div class="artist-card">
-    <input type="checkbox" value="Davido" class="hidden-checkbox" id="hiddenCheckbox1">
-           <div id="artistInfo2"></div></div>
-</div>
-    
-<div> 
-  <div class="artist-card">
-    <input type="checkbox" value="21" class="hidden-checkbox" id="hiddenCheckbox2">
-           <div id="artistInfo3"></div></div>
-</div>
-
-</div>
 
   <div id="artistGrid"></div>
 

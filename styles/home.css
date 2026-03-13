@@ -7,10 +7,19 @@ body{
 }
 #artistGrid{
     display:grid;
-    grid-template-columns:repeat(auto-fill,180px);
+    grid-template-columns: 0.5fr 0.5fr 0.5fr
     gap:20px;
     justify-content:center;
 }
+.select_boxes {
+  background-color: rgb(0, 0, 17);
+  display: grid;
+  margin-left: 14px;
+  width: 50%;
+  margin-top: 0px;
+;
+}
+
 .artist-card{
     width:215px;
     background:#0b0b0b;
@@ -306,14 +315,6 @@ body{
 .img {
   width: 28px;
   height: 28px;
-}
-.select_boxes {
-  background-color: rgb(0, 0, 17);
-  display: grid;
-  margin-left: 14px;
-  width: 50%;
-  margin-top: 0px;
-  grid-template-columns: 0.5fr 0.5fr 0.5fr;
 }
 
 .the_box {

@@ -140,7 +140,10 @@ const artists = [
     "Lil Baby",
     "Tems",
     "Metro Boomin",
-    "Young thug"
+    "Young thug",
+    "Billie Eilish"
+    "rihanna"
+    "sza"
 ];
 
 const artistGrid = document.getElementById("artistGrid");
@@ -149,7 +152,7 @@ const artistGrid = document.getElementById("artistGrid");
 const shuffledArtists = artists.sort(() => 0.5 - Math.random());
 
 // num of cards
-const numberOfCards = 6;
+const numberOfCards = 9;
 
 shuffledArtists.slice(0, numberOfCards).forEach(artistName => {
 
@@ -172,7 +175,6 @@ shuffledArtists.slice(0, numberOfCards).forEach(artistName => {
 
 });
 
-
 const selectedArtists = [];
 
 document.addEventListener("click", function(e){
@@ -183,15 +185,27 @@ document.addEventListener("click", function(e){
     const card = btn.closest(".artist-card");
     const artistName = card.dataset.artist;
 
-    if(!selectedArtists.includes(artistName)){
+    if(btn.classList.contains("selected")){
 
-        selectedArtists.push(artistName);
+        // REMOVE selection
+        btn.classList.remove("selected");
+        btn.innerHTML = "+";
 
+        const index = selectedArtists.indexOf(artistName);
+        if(index > -1){
+            selectedArtists.splice(index,1);
+        }
+
+    }else{
+
+        // ADD selection
         btn.classList.add("selected");
         btn.innerHTML = "✓";
 
+        selectedArtists.push(artistName);
+
     }
 
-    console.log(selectedArtists);
+    console.log("Selected artists:", selectedArtists);
 
 });

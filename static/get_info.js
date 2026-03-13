@@ -3,7 +3,40 @@ function changeUrl(url) {
                 }
 
 
+const selectedArtists = [];
 
+document.addEventListener("click", function(e){
+
+    if(!e.target.classList.contains("add-btn")) return;
+
+    const btn = e.target;
+    const card = btn.closest(".artist-card");
+    const artistName = card.dataset.artist;
+
+    if(btn.classList.contains("selected")){
+
+        // REMOVE selection
+        btn.classList.remove("selected");
+        btn.innerHTML = "+";
+
+        const index = selectedArtists.indexOf(artistName);
+        if(index > -1){
+            selectedArtists.splice(index,1);
+        }
+
+    }else{
+
+        // ADD selection
+        btn.classList.add("selected");
+        btn.innerHTML = "✓";
+
+        selectedArtists.push(artistName);
+
+    }
+
+    console.log("Selected artists:", selectedArtists);
+
+});
 async function getTrackIdsByArtist(artistName) {
   try {
 
@@ -28,8 +61,7 @@ async function getTrackIdsByArtist(artistName) {
     // Set limit to 5
     trackIds = trackIds.slice(0, 5);
 
-    // Return the array of track IDs
-    //console.log("Top tracks:", trackIds);
+   
     return trackIds;
   } catch (error) {
     console.error('Error fetching track IDs by artist:', error);
@@ -38,32 +70,32 @@ async function getTrackIdsByArtist(artistName) {
 }
 
 async function myTop5(artistNames) {
-    let allTrackIds = []; // To store track IDs from all artists
+
+    let allTrackIds = [];
 
     for (const artist of artistNames) {
         const trackIds = await getTrackIdsByArtist(artist);
-        console.log(`Track IDs for ${artist}:`, trackIds);
 
-        // Add the trackIds for this artist to the allTrackIds array
         allTrackIds = allTrackIds.concat(trackIds);
     }
 
-    // Convert the entire trackIds array to a string and append it to the URL hash
+    allTrackIds.sort(() => 0.5 - Math.random());
+
     const encodedTrackIds = encodeURIComponent(allTrackIds.join(','));
-   window.location.href = `mysearchpage.html#trackIds=${encodedTrackIds}`;
+
+    window.location.href = `mysearchpage.html#trackIds=${encodedTrackIds}`;
 }
+
 function toSearchpage() {
-        const selectedArtists = [];
-        const checkboxes = document.querySelectorAll('input[type="checkbox"]:checked');
 
-        checkboxes.forEach(checkbox => {
-                selectedArtists.push(checkbox.value);
-        });
+    if (selectedArtists.length > 0) {
+        myTop5(selectedArtists);
+    } else {
+        alert("Select at least one artist");
+    }
 
-        if (selectedArtists.length > 0) {
-                myTop5(selectedArtists);
-        }
 }
+
 
 // get info function
 async function getArtistInfo(artistName) {
@@ -91,7 +123,6 @@ async function getArtistInfo(artistName) {
 
     //  Extracting the artist's top track IDs
     const topTrackIds = await topTracksResponse.json();
-    const trackIds =  getTrackIdsByArtist(); 
 
     // Handle the display in HTML format
     const artistInfoHTML = `
@@ -110,7 +141,7 @@ async function getArtistInfo(artistName) {
               </div>
       </div>
     `;
-     return  { artistInfoHTML, trackIds };
+  return { artistInfoHTML };
   } catch (error) {
     console.error('Error fetching artist info:', error);
     return '<div>Error fetching artist info</div>';
@@ -157,12 +188,13 @@ const numberOfCards = 9;
 shuffledArtists.slice(0, numberOfCards).forEach(artistName => {
 
     const card = document.createElement("div");
-    card.classList.add("artist-card");
+      card.classList.add("artist-card");
+      card.dataset.artist = artistName;  
+      
+      card.innerHTML = `
+      <div class="artistInfo">Loading...</div>
+      `;
 
-    card.innerHTML = `
-        <input type="checkbox" value="${artistName}" class="hidden-checkbox">
-        <div class="artistInfo">Loading...</div>
-    `;
 
     artistGrid.appendChild(card);
 
@@ -175,40 +207,7 @@ shuffledArtists.slice(0, numberOfCards).forEach(artistName => {
 
 });
 
-const selectedArtists = [];
 
-document.addEventListener("click", function(e){
-
-    if(!e.target.classList.contains("add-btn")) return;
-
-    const btn = e.target;
-    const card = btn.closest(".artist-card");
-    const artistName = card.dataset.artist;
-
-    if(btn.classList.contains("selected")){
-
-        // REMOVE selection
-        btn.classList.remove("selected");
-        btn.innerHTML = "+";
-
-        const index = selectedArtists.indexOf(artistName);
-        if(index > -1){
-            selectedArtists.splice(index,1);
-        }
-
-    }else{
-
-        // ADD selection
-        btn.classList.add("selected");
-        btn.innerHTML = "✓";
-
-        selectedArtists.push(artistName);
-
-    }
-
-    console.log("Selected artists:", selectedArtists);
-
-});
 
 const panel = document.getElementById("sidePanel");
 const openBtn = document.getElementById("menuBtn");

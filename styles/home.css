@@ -105,7 +105,7 @@ body{
     margin:3px 0;
 }
 .mycontainer {
-  width: 612px;
+  width: 100%;
   margin: 0px;
   background-color: rgb(0, 0, 17);
   display: flex;
@@ -163,8 +163,8 @@ body{
 .header {
     display: flex;
     flex-direction: column;
-    background-color: black;
     height: 510px;
+    margin: 50px;
 }
 .pic1 {
   width: 48px;

@@ -66,31 +66,50 @@
 
 </div>
     </div>
- <div class="tooBox">
-  <div class="mycontainer">
-    
-<div class="round">
-<p class="p3">Select preferred Artists</p></div>
-  
-  <div class="select_boxes">
+<div class="home-wrapper">
 
-  <div id="artistGrid" class="select_boxes"></div>
+  <div class="home-container">
 
-<button class="butn"  onclick="toSearchpage()" onclick="completeList()">Continue</button>
-</div>
-  <div class="funSide">
-  <img src="styles/images/updated_banner(2).jpg" class="disArts">
-  <p class="Np3">Discover New Artists</p>
-  <div class="adDiv">
-    <p class="fline">JMusic</p>
-    <p class="sline"> Home Of Favorites</p>
+    <!-- LEFT SECTION -->
+    <div class="artists-section">
 
-    <img src="styles/images/adPic.jpg" class="adPic">
+      <div class="section-header">
+        <p class="section-title">Select Preferred Artists</p>
+      </div>
+
+      <div id="artistGrid" class="artist-grid"></div>
+
+      <button class="continue-btn" onclick="toSearchpage(); completeList();">
+        Continue
+      </button>
+
+    </div>
+
+
+    <!-- RIGHT SECTION -->
+    <div class="discover-section">
+
+      <img src="styles/images/updated_banner(2).jpg" class="discover-banner">
+
+      <p class="discover-title">Discover New Artists</p>
+
+      <div class="ad-card">
+
+        <p class="ad-title">JMusic</p>
+        <p class="ad-subtitle">Home Of Favorites</p>
+
+        <img src="styles/images/adPic.jpg" class="ad-img">
+
+      </div>
+
+    </div>
+
   </div>
+
+  <div class="search_back" id="searchbackDiv"></div>
+
 </div>
- <div class="search_back" id="searchbackDiv"></div>
- </div>
-</div>
+
 
 <script src="static/get_info.js"></script>
 <script src="static/search_artists.js"></script>

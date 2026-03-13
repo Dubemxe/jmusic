@@ -9,11 +9,15 @@ const discoverArtists = [
   },
   {
     name: "Burna Boy",
-    image: "styles/images/burna.jpg"
+    image: "styles/images/burnaboy.jpg"
   },
   {
     name: "Future",
     image: "styles/images/future.jpg"
+  },
+  {
+    name: "Travis Scott",
+    image: "styles/images/travis.jpg"
   },
   {
     name: "Tems",

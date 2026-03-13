@@ -1,5 +1,14 @@
-js original
+async function getSpotifyToken(){
 
+const response = await fetch(
+"https://jmusic-backend.onrender.com/spotify-token"
+);
+
+const data = await response.json();
+
+return data.token;
+
+}
 function changeUrl(url) {
                 window.location.href = url;
                 }
@@ -39,36 +48,52 @@ document.addEventListener("click", function(e){
     console.log("Selected artists:", selectedArtists);
 
 });
-async function getTrackIdsByArtist(artistName) {
-  try {
+async function getTrackIdsByArtist(artistName){
 
-    // Encode the artist name for use in the URL
-    const encodedArtistName = encodeURIComponent(artistName);
+try{
 
-    // Construct the search URL for tracks by the artist
-    const searchUrl = `https://v1.nocodeapi.com/jmusicdn1/spotify/uGxXHgbuCDfpIJMm/search?q=${encodedArtistName}&type=track`;
+const token = await getSpotifyToken();
 
-    // Make a GET request to the search URL with the Spotify API access token
-    const response = await fetch(searchUrl);
+const searchResponse = await fetch(
+`https://api.spotify.com/v1/search?q=${encodeURIComponent(artistName)}&type=artist&limit=1`,
+{
+headers:{
+Authorization:`Bearer ${token}`
+}
+});
 
-    // Check if the response is successful
-    if (!response.ok) {
-      throw new Error('Failed to fetch tracks by artist');
-    }
+const searchData = await searchResponse.json();
 
-    // Parse the response JSON
-    const data = await response.json();
-        let trackIds = data.tracks.items.map(item => item.id);
+if(!searchData.artists.items.length){
+return [];
+}
 
-    // Set limit to 5
-    trackIds = trackIds.slice(0, 5);
+const artistId = searchData.artists.items[0].id;
 
-   
-    return trackIds;
-  } catch (error) {
-    console.error('Error fetching track IDs by artist:', error);
-    return [];
-  }
+const topTracksResponse = await fetch(
+`https://api.spotify.com/v1/artists/${artistId}/top-tracks?market=US`,
+{
+headers:{
+Authorization:`Bearer ${token}`
+}
+});
+
+const topTracksData = await topTracksResponse.json();
+
+let trackIds = topTracksData.tracks.map(track=>track.id);
+
+trackIds = trackIds.slice(0,5);
+
+return trackIds;
+
+}catch(error){
+
+console.error("Error fetching tracks:",error);
+
+return [];
+
+}
+
 }
 
 async function myTop5(artistNames) {
@@ -100,56 +125,57 @@ function toSearchpage() {
 
 
 // get info function
-async function getArtistInfo(artistName) {
-  try {
-          const accessToken =  '';
-    const searchUrl = `https://v1.nocodeapi.com/jmusicdm1/spotify/uWWdmvHDFKQQHmLq/search?q=${encodeURIComponent(artistName)}&type=artist`;
+async function getArtistInfo(artistName){
 
-    const response = await fetch(searchUrl);
+try{
 
-    if (!response.ok) {
-      throw new Error('Failed to fetch artist info');
-    }
-    const searchData = await response.json();
-    const artist = searchData.artists.items[0];
-    if (!artist) {
-      return '<div>Artist not available</div>';
-    }
+const token = await getSpotifyToken();
 
-// Extract track IDs from the artist's top tracks
-    const topTracksResponse = await fetch(artist.href /*+ '/top-tracks?country=US'*/, {
-      headers: {
-        'Authorization': `Bearer ${accessToken}`
-      }
-    });
+const response = await fetch(
+`https://api.spotify.com/v1/search?q=${encodeURIComponent(artistName)}&type=artist&limit=1`,
+{
+headers:{
+Authorization:`Bearer ${token}`
+}
+});
 
-    //  Extracting the artist's top track IDs
-    const topTrackIds = await topTracksResponse.json();
+const data = await response.json();
 
-    // Handle the display in HTML format
-    const artistInfoHTML = `
-      <div>
-           <div class="image-wrapper">
-        <img src="${artist.images[0].url}" alt="${artist.name}" class="artist_image">
-        <div class="add-btn">+</div>
+const artist = data.artists.items[0];
 
-    </div>
-
-        <h2 class="name">${artist.name}</h2>
-        
-    <div class="artist-stats">
-        <p class="followers">${fmtCount(artist.followers.total)} Followers</p>
-        <p class="rating"> ${artist.popularity}% Spotify Rating</p>
-              </div>
-      </div>
-    `;
-  return { artistInfoHTML };
-  } catch (error) {
-    console.error('Error fetching artist info:', error);
-    return '<div>Error fetching artist info</div>';
-  }
+if(!artist){
+return {artistInfoHTML:"<div>Artist not available</div>"};
 }
 
+const artistInfoHTML = `
+<div>
+
+<div class="image-wrapper">
+<img src="${artist.images[0]?.url || ''}" class="artist_image">
+<div class="add-btn">+</div>
+</div>
+
+<h2 class="name">${artist.name}</h2>
+
+<div class="artist-stats">
+<p class="followers">${fmtCount(artist.followers.total)} Followers</p>
+<p class="rating">${artist.popularity}% Spotify Rating</p>
+</div>
+
+</div>
+`;
+
+return {artistInfoHTML};
+
+}catch(error){
+
+console.error("Artist fetch error:",error);
+
+return {artistInfoHTML:"<div>Error loading artist</div>"};
+
+}
+
+}
 function fmtCount(count) {
     if (count >= 1000000) {
         return (count / 1000000).toFixed(1).replace(/\.0$/, '') + 'M';

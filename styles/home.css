@@ -4,7 +4,6 @@ body{
     background:black;
     font-family:'Inter',sans-serif;
     display:flex;
-    align-items:center;
 }
 
 .everything_box{
@@ -25,6 +24,7 @@ body{
     display:grid;
     grid-template-columns:repeat(auto-fill, minmax(170px,1fr));
     gap:20px;
+    margin-left: 10px;
 }
 
 .artist_image {
@@ -123,7 +123,9 @@ body{
     transform:translateY(10px);
     transition:all .3s ease;
 }
-
+.hidden-checkbox {
+    display: none;
+}
 .artist-card:hover .add-btn{
     opacity:1;
     transform:translateY(0);

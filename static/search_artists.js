@@ -11,7 +11,7 @@ return data.token;
 }
 async function getTrackIdsByArtist(artistName) {
   try {
-
+    const token = await getSpotifyToken();
     const encodedArtistName = encodeURIComponent(artistName);
 
     const searchResponse = await fetch(

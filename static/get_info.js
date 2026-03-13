@@ -222,3 +222,31 @@ closeBtn.addEventListener("click", () => {
     panel.classList.remove("active");
 });
 
+const cards = document.querySelectorAll(".artist-card-stack");
+
+let positions = ["left","center","right"];
+
+function updatePositions(){
+
+    cards.forEach((card,i)=>{
+
+        card.classList.remove("left","center","right");
+
+        card.classList.add(positions[i]);
+
+    });
+
+}
+
+updatePositions();
+
+function rotateCards(){
+
+    positions.unshift(positions.pop());
+
+    updatePositions();
+
+}
+
+setInterval(rotateCards,3500);
+

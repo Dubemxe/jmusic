@@ -6,7 +6,12 @@ body{
     align-items:center;
     height:100vh;
 }
-
+#artistGrid{
+    display:grid;
+    grid-template-columns:repeat(auto-fill,180px);
+    gap:20px;
+    justify-content:center;
+}
 .artist-card{
     width:200px;
     background:#0b0b0b;

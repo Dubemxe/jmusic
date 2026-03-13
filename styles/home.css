@@ -152,7 +152,7 @@ body{
 .everything_box {
         width: 100%;
         margin: 0px;
-        background-color: yellow;
+        background-color: black;
 }
 .tooBox {
   display: flex;
@@ -162,7 +162,7 @@ body{
 .header {
     display: flex;
     flex-direction: column;
-    height: 510px;
+    height: 180px;
     margin: 50px;
 }
 .pic1 {
@@ -216,7 +216,7 @@ body{
   height: 52.5px;
   margin-left: 0px;
   margin-top: 0px;
-  font-size: 20px;
+  font-size: 12px;
   background-color: rgba(250, 239, 239, 0.019);
   border-color: white;
   border-top-right-radius: 2px;
@@ -281,8 +281,8 @@ body{
 .my_header {
   display: flex;
   flex-direction: row;
-  height: 240px;
-  margin-bottom: 35px;
+  height: 140px;
+  margin-bottom: 15px;
 }
 #dropdownMenu {
   width: 70px
@@ -381,29 +381,6 @@ body{
         margin-top: 3px;
         font-size: 12px;
         font-weight: bold;
-}
-.roboto-light {
-  font-family: "Roboto", sans-serif;
-  font-weight: 300;
-  font-style: normal;
-}
-
-.roboto-regular {
-  font-family: "Roboto", sans-serif;
-  font-weight: 400;
-  font-style: normal;
-}
-
-.roboto-medium {
-  font-family: "Roboto", sans-serif;
-  font-weight: 500;
-  font-style: normal;
-}
-
-.roboto-bold {
-  font-family: "Roboto", sans-serif;
-  font-weight: 700;
-  font-style: normal;
 }
 
 .invdiv {

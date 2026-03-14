@@ -449,6 +449,7 @@ body{
 }
 #searchResults{
 padding:20px;
+padding-right: 0px;
 display:flex;
 flex-direction:column;
 gap:16px;
@@ -529,6 +530,7 @@ color:#aaa;
     display: flex;
     justify-content: flex-start;
   margin: 20px;
+    margin-right: 5px;
   border-radius: 17px;
   
 }

@@ -217,12 +217,15 @@ document.getElementById("artistSearchInput")
 
 if(!query) return
 
-const url =
-`https://v1.nocodeapi.com/jmusicdm/spotify/KAIfcEwQNVgCQtXA/search?q=${encodeURIComponent(query)}&type=track`
+const response = await fetch(
+`https://api.spotify.com/v1/search?q=${encodeURIComponent(query)}&type=tracks&limit=9`,
+{
+headers:{
+Authorization:`Bearer ${token}`
+}
+});
 
-const res = await fetch(url)
-
-const data = await res.json()
+const data = await response.json()
 
 const tracks = data.tracks.items
 

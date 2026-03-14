@@ -74,39 +74,32 @@ async function myrepTop5(artistNames) {
 
 let selectedTrackIds = [];
 
-async function addToFavorites(checkbox) {
+async function addToFavorites(checkbox){
 
-  const artistName = checkbox.getAttribute("data-artist");
+const artistName = checkbox.dataset.artistName;
 
-  const trackIds = await myrepTop5([artistName]);
+const trackIds = await myrepTop5([artistName]);
 
-  if (checkbox.checked) {
+if(checkbox.checked){
 
-    trackIds.forEach(trackId => {
+trackIds.forEach(trackId=>{
 
-      if (!selectedTrackIds.includes(trackId)) {
+if(!selectedTrackIds.includes(trackId)){
+selectedTrackIds.push(trackId);
+}
 
-        selectedTrackIds.push(trackId);
+});
 
-        console.log("Added:", trackId);
+}else{
 
-      }
+trackIds.forEach(trackId=>{
+selectedTrackIds = selectedTrackIds.filter(id=>id!==trackId);
+});
 
-    });
+}
 
-  } else {
+console.log("Selected Tracks:",selectedTrackIds);
 
-    trackIds.forEach(trackId => {
-
-      selectedTrackIds = selectedTrackIds.filter(id => id !== trackId);
-
-      console.log("Removed:", trackId);
-
-    });
-
-  }
-
-  console.log("Selected Tracks:", selectedTrackIds);
 }
 
 
@@ -346,6 +339,7 @@ function displayResults(artists){
 resultsContainer.innerHTML = "";
 
 artists.forEach(artist => {
+const bio = await getArtistBio(artist.name);
 
 const item = document.createElement("div");
 
@@ -369,7 +363,7 @@ item.innerHTML = `
 
   <div class="bdiv">
     <p class="mark_artistname">${artist.name}</p>
- 
+    <p class="bio">${bio}</p>
 `;
 
 resultsContainer.appendChild(item);

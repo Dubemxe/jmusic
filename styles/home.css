@@ -519,7 +519,7 @@ color:#aaa;
 }
 
 .imge {
-  width: 100%;
+  width: 430px;
   height: 520px;
   background-size: cover;
   background-position: center;
@@ -532,6 +532,7 @@ color:#aaa;
 }
 .mark_artistname {
   font-weight: bold;
+  color: white;
   margin-left: 18px;
   font-size: 1.5rem;
   margin-top: 12px;

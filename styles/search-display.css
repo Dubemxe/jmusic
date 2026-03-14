@@ -56,9 +56,19 @@ width:45px;
 height:45px;
 cursor:pointer;
 }
-
+.albumImage {
+  width: 41px;
+  height: 41px;
+  border-radius: 20px;
+}
 /* SEARCH */
-
+.myheader{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:18px 40px;
+    background:black;
+}
 .search_sec{
 display:flex;
 align-items:center;
@@ -66,34 +76,34 @@ gap:10px;
 }
 
 .search_div{
-display:flex;
-align-items:center;
-border:1px solid white;
-border-radius:30px;
-overflow:hidden;
+    display:flex;
+    align-items:center;
+    border:1px solid white;
+    border-radius:30px;
+    overflow:hidden;
 }
 
 .searchbar{
-width:260px;
-height:46px;
-border:none;
-outline:none;
-background:transparent;
-color:white;
-padding-left:15px;
+    width:260px;
+    height:48px;
+    border:none;
+    outline:none;
+    background:transparent;
+    color:white;
+    text-align:center;
 }
 
 .searchbtn{
-width:50px;
-height:46px;
-border:none;
-background:transparent;
-cursor:pointer;
+    width:50px;
+    height:48px;
+    border:none;    
+    background:transparent;
+    cursor:pointer;
 }
 
 #accimg{
-width:28px;
-height:28px;
+width:40px;
+height:40px;
 }
 
 /* SONG LIST */

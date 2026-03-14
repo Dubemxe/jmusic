@@ -364,6 +364,7 @@ item.innerHTML=`
   <div class="bdiv">
     <p class="mark_artistname">${artist.name}</p> </div>
     <p class="bio">${bio}</p>
+     </div>
 `;
 
 resultsContainer.appendChild(item);

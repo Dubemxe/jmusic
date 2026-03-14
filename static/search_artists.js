@@ -111,31 +111,16 @@ async function addToFavorites(checkbox) {
 
 
 
-async function getArtistBio(artistName) {
+async function getArtistBio(artistName){
 
-  const apiKey = "15e5f9128c80ca2ea5b7bb90bbcda271";
+const res = await fetch(
+`https://en.wikipedia.org/api/rest_v1/page/summary/${encodeURIComponent(artistName)}`
+);
 
-  const bioUrl =
-    `https://ws.audioscrobbler.com/2.0/?method=artist.getinfo&artist=${encodeURIComponent(artistName)}&api_key=${apiKey}&format=json`;
+const data = await res.json();
 
-  try {
+return data.extract;
 
-    const response = await fetch(bioUrl);
-
-    const data = await response.json();
-
-    if (data.artist && data.artist.bio && data.artist.bio.summary) {
-      return data.artist.bio.summary;
-    }
-
-    return "Biography not available.";
-
-  } catch (error) {
-
-    console.error("Error fetching artist bio:", error);
-
-    return "Error fetching biography.";
-  }
 }
 async function loadArtistBio(artistName){
 

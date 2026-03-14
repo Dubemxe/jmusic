@@ -139,18 +139,10 @@ async function getArtistBio(artistName) {
 }
 
 
-function popupaDiv(){
-
-const panel = document.getElementById("searchbackDiv");
-
-if(panel.classList.contains("open")){
-panel.classList.remove("open");
-panel.style.right = "-40%";
-}else{
-panel.classList.add("open");
-panel.style.right = "0";
-}
-
+function popupaDiv() { 
+  const contentDiv = document.getElementById("searchbackDiv"); 
+  const isHidden = window.getComputedStyle(contentDiv).display === "none"; 
+  contentDiv.style.display = isHidden ? "block" : "none";
 }
 
 

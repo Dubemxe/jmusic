@@ -521,23 +521,48 @@ color:#aaa;
     transform:translateX(0);
 }
 
-.imge {
-  width: 430px;
-  height: 520px;
+.imge{
+width:520px;
+height:540px;
 
-  background-size: cover;
-  background-position: center;
+background-size:cover;
+background-position:center;
 
-  position: relative;
+border-radius:18px;
 
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-end; 
+position:relative;
 
-  margin: 20px;
-  margin-right: 5px;
+display:flex;
+flex-direction:column;
+justify-content:flex-end;
 
-  border-radius: 17px;
+padding:25px;
+
+overflow:hidden;
+}
+.imge::before{
+content:"";
+position:absolute;
+left:0;
+right:0;
+bottom:0;
+height:55%;
+
+background:linear-gradient(to top, rgba(0,0,0,0.9), transparent);
+
+z-index:1;
+}
+.artist-text{
+position:relative;
+z-index:2;
+max-width:480px;
+}
+
+.mark_artistname{
+font-size:28px;
+font-weight:700;
+color:white;
+margin-bottom:8px;
 }
 .mark_artistname {
   font-weight: bold;
@@ -547,6 +572,30 @@ color:#aaa;
   margin-top: 12px;
   margin-bottom: 15px;
 }
+.bio{
+color:#dcdcdc;
+font-size:15px;
+line-height:1.6;
+
+opacity:0;
+transform:translateY(10px);
+
+transition:all .35s ease;
+
+max-height:140px;
+overflow:hidden;
+}
+.imge:hover .bio{
+opacity:1;
+transform:translateY(0);
+}
+.checkdiv{
+position:absolute;
+top:10px;
+right:10px;
+z-index:3;
+}
+
 .bdiv {
   display: flex;
   align-items: flex-end; /* Ensures content is at the bottom */
@@ -600,5 +649,7 @@ margin-top: 7px;
   column-gap: 30px;
   margin-left: 50px;
 }
-
+#searchbackDiv{
+width:600px;
+}
 

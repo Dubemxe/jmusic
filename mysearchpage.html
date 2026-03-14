@@ -2,87 +2,139 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">       
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<!--<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous"> -->
 <link rel="stylesheet" href="styles/search-display.css">
+
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Archivo+Black&display=swap" rel="stylesheet">
 <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@200..800&display=swap" rel="stylesheet">
+
 </head>
+
 <body>
-   <div class="homeheader">
-        <div>
-          <img src="styles/images/icons8-left-arrow-50.png" alt="back" class="back_img"  onclick="window.history.back()">
-          <p class="searchtxt">Search</p>
-          <div class="search_sec">
-             <input
-      placeholder="Search for your favorites..."
-      class="searchbar"
-      id="artistSearchInput">
 
-    <button
-      class="searchbtn"
-      id="searchBtn"
-      onclick="searchArtist(); popupaDiv();">
+<div class="homeheader">
 
-      <img
-        src="styles/images/icons8-search-48.png"
-        class="img"
-        alt="Search">
+<div>
 
-    </button>
-          </div>
-        </div>
-        <img src="styles/images/icons8-user-64 (1).png" alt="user" class="actimg" id="accimg" />
-      </div>
-<div class="container">
+<img src="styles/images/icons8-left-arrow-50.png"
+class="back_img"
+onclick="window.history.back()">
 
-          
-    <!-- Left Section -->
-    <div class="songlist_sec" id="leftside">
-     
+<p class="searchtxt">Search</p>
 
-        <h1 class="subtext">All songs</h1>
-        <div id="songList" class="musicList"></div>
-</div> 
-        <!-- Slide-in Right Panel -->
-    <div class="full-player" id="fullPlayer">
-      <div class="player-header">
-        <h2>Now Playing</h2>
-        <img id="closeBtn" onclick="closeFullPlayer()" src="styles/images/icons8-x-50 white.png" />
-      </div>
+<div class="search_sec">
 
-      <div class="player-main">
-        <div class="album-art" id="albumArt">
-        </div>
+<input
+placeholder="Search for your favorites..."
+class="searchbar"
+id="artistSearchInput">
 
-        <div class="song-info">
-          <h1 id="songTitle"></h1>
-          <p id="songArtist"></p>
-        </div>
+<button
+class="searchbtn"
+onclick="searchSong_onpage()">
 
-        <div class="extra-controls">
-          <button id="shuffleBtn"><img src="styles/images/icons8-shuffle-64 (1).png" class="shff" /></button>
-          <button id="favBtn">♡</button>
-        </div>
+<img src="styles/images/icons8-search-48.png" class="img">
 
-        <div class="progress-bar"><div class="progress-filled" style="width: 33%;"></div></div>
-        <div class="time-display">
-          <span id="currentTime">1:23</span>
-          <span id="songDuration">3:45</span>
-        </div>
+</button>
 
-        <div class="main-controls">
-          <button id="prevBtn"><img src="styles/images/icons8-prev-30.png" class="ppnp2" /></button>
-          <button id="playPauseBtn"><img src="styles/images/icons8-play-50.png" class="ppnp" /></button>
-          <button id="nextBtn"><img src="styles/images/icons8-next-30.png" class="ppnp2" /></button>
-        </div>
-      </div>
-    </div>
 </div>
 
-        <script src="static/mysearchpage.js"></script>
+</div>
+
+<img src="styles/images/icons8-user-64 (1).png" class="actimg" id="accimg">
+
+</div>
+
+
+<div class="container">
+
+<!-- LEFT SIDE -->
+
+<div class="songlist_sec" id="leftside">
+
+<h1 class="subtext">All songs</h1>
+
+<div id="songList" class="musicList"></div>
+
+</div>
+
+
+
+<!-- RIGHT PLAYER -->
+
+<div class="full-player" id="fullPlayer">
+
+<div class="player-header">
+
+<h2>Now Playing</h2>
+
+<img id="closeBtn" src="styles/images/icons8-x-50 white.png">
+
+</div>
+
+<div class="player-main">
+
+<div class="album-art" id="albumArt"></div>
+
+<div class="song-info">
+
+<h1 id="songTitle"></h1>
+
+<p id="songArtist"></p>
+
+</div>
+
+
+<div class="extra-controls">
+
+<button id="shuffleBtn">
+<img src="styles/images/icons8-shuffle-64 (1).png" class="shff">
+</button>
+
+<button id="favBtn">♡</button>
+
+</div>
+
+
+<div class="progress-bar">
+<div class="progress-filled"></div>
+</div>
+
+<div class="time-display">
+
+<span id="currentTime">0:00</span>
+
+<span id="songDuration">0:00</span>
+
+</div>
+
+
+<div class="main-controls">
+
+<button id="prevBtn">
+<img src="styles/images/icons8-prev-30.png" class="ppnp2">
+</button>
+
+<button id="playPauseBtn">
+<img src="styles/images/icons8-play-50.png" class="ppnp">
+</button>
+
+<button id="nextBtn">
+<img src="styles/images/icons8-next-30.png" class="ppnp2">
+</button>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+
+<script src="static/mysearchpage.js"></script>
+
 </body>
 </html>

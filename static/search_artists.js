@@ -270,7 +270,15 @@ function completeList() {
     `mysearchpage.html#trackIds=${encodedTrackIds}`;
 
 }
+async function addToFavorites(checkbox){
 
+if(!checkbox.checked) return;
+
+const artistId = checkbox.dataset.artistId;
+
+await getTrackIdsByArtist(artistId);
+
+}
 
 function formatFollowers(count) {
 
@@ -316,7 +324,7 @@ try{
 const token = await getSpotifyToken();
 
 const searchResponse = await fetch(
-`https://api.spotify.com/v1/search?q=${encodeURIComponent(query)}&type=track&limit=8`,
+`https://api.spotify.com/v1/search?q=${encodeURIComponent(query)}&type=artist&limit=1`,
 {
 headers:{
 Authorization:`Bearer ${token}`
@@ -332,36 +340,40 @@ console.error(err);
 }
 
 }
-function displayResults(tracks){
+function displayResults(artists){
 
-resultsContainer.innerHTML=""
+resultsContainer.innerHTML = "";
 
-tracks.forEach(track=>{
+artists.forEach(artist => {
 
-const artists = track.artists.map(a=>a.name).join(", ")
+const item = document.createElement("div");
 
-const item = document.createElement("div")
-
-item.className="search-item"
+item.className = "search-item";
 
 item.innerHTML = `
-<img src="${track.album.images[0].url}">
 
-<div class="search-info">
-<div class="search-title">${track.name}</div>
-<div class="search-artist">${artists}</div>
+<div class="imge"
+     style="background-image:url('${artist.images[0]?.url || "styles/images/adPic.jpg"}');">
+
+  <div class="checkdiv">
+
+    <input type="checkbox"
+           class="checkerdh"
+           data-artist-id="${artist.id}"
+           data-artist-name="${artist.name}"
+           onclick="addToFavorites(this)">
+
+  </div>
+
+  <div class="bdiv">
+    <p class="mark_artistname">${artist.name}</p>
+  </div>
+
 </div>
-`
+`;
 
-item.onclick = ()=>{
+resultsContainer.appendChild(item);
 
-window.location.href =
-`mysearchpage.html#trackIds=${track.id}`
-
-}
-
-resultsContainer.appendChild(item)
-
-})
+});
 
 }

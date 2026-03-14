@@ -10,19 +10,7 @@ return data.token;
 
 }
 
-function popupaDiv(){
 
-const panel = document.getElementById("searchbackDiv");
-
-if(panel.classList.contains("open")){
-panel.classList.remove("open");
-panel.style.right = "-40%";
-}else{
-panel.classList.add("open");
-panel.style.right = "0";
-}
-
-}
 async function getTrackIdsByArtist(artistName) {
   try {
     const token = await getSpotifyToken();

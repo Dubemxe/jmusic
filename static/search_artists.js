@@ -282,4 +282,84 @@ function formatFollowers(count) {
 
   return count;
 }
+const searchInput = document.getElementById("artistSearchInput")
+const resultsContainer = document.getElementById("searchResults")
+const searchPanel = document.getElementById("searchbackDiv")
 
+let typingTimer
+
+searchInput.addEventListener("input", () => {
+
+clearTimeout(typingTimer)
+
+const query = searchInput.value.trim()
+
+if(query.length < 2){
+searchPanel.classList.remove("active")
+resultsContainer.innerHTML=""
+return
+}
+
+searchPanel.classList.add("active")
+
+typingTimer = setTimeout(()=>{
+liveSearch(query)
+},400)
+
+})
+async function liveSearch(query){
+
+try{
+  
+const token = await getSpotifyToken();
+  
+  const searchResponse = await fetch(
+  `https://api.spotify.com/v1/search?q=${encodeURIComponent(artistName)}&type=artist&limit=1`,
+  {
+  headers:{
+  Authorization:`Bearer ${token}`
+  }
+  });
+
+const searchData = await searchResponse.json();
+
+displayResults(searchData.tracks.items)
+
+}catch(err){
+console.error(err)
+}
+
+}
+function displayResults(tracks){
+
+resultsContainer.innerHTML=""
+
+tracks.forEach(track=>{
+
+const artists = track.artists.map(a=>a.name).join(", ")
+
+const item = document.createElement("div")
+
+item.className="search-item"
+
+item.innerHTML = `
+<img src="${track.album.images[0].url}">
+
+<div class="search-info">
+<div class="search-title">${track.name}</div>
+<div class="search-artist">${artists}</div>
+</div>
+`
+
+item.onclick = ()=>{
+
+window.location.href =
+`mysearchpage.html#trackIds=${track.id}`
+
+}
+
+resultsContainer.appendChild(item)
+
+})
+
+}

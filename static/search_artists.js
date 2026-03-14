@@ -334,18 +334,18 @@ console.error(err);
 }
 
 }
-function displayResults(artists){
+async function displayResults(artists){
 
-resultsContainer.innerHTML = "";
+resultsContainer.innerHTML="";
 
-artists.forEach(artist => {
+for(const artist of artists){
+
 const bio = await getArtistBio(artist.name);
 
-const item = document.createElement("div");
+const item=document.createElement("div");
+item.className="search-item";
 
-item.className = "search-item";
-
-item.innerHTML = `
+item.innerHTML=`
 
 <div class="imge"
      style="background-image:url('${artist.images[0]?.url || "styles/images/adPic.jpg"}');">

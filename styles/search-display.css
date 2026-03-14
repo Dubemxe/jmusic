@@ -45,6 +45,10 @@ width:100%;
 padding:10px 20px;
 background:black;
 }
+.search_img {
+  width: 38px;
+  height: 38px;
+}
 
 .searchtxt{
 font-size:32px;

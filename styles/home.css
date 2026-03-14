@@ -445,19 +445,48 @@ body{
     transform:translateY(-2px);
     box-shadow:0 6px 18px rgba(0,0,0,.5);
 }
-#searchbackDiv{
-    position: absolute;
-    right: 0;
-    top: 0;
+#searchResults{
+padding:20px;
+display:flex;
+flex-direction:column;
+gap:16px;
+}
 
-    width: 35%;
-    height: 100%;
+.search-item{
+display:flex;
+align-items:center;
+gap:14px;
 
-    background: #111;
+padding:10px;
+border-radius:8px;
 
-    display: none;
+cursor:pointer;
 
-    z-index: 9999;
+transition:background 0.2s ease;
+}
 
-    overflow-y: auto;
+.search-item:hover{
+background:#1c1c1c;
+}
+
+.search-item img{
+width: 185px;
+height: 185px;
+border-radius:6px;
+object-fit:cover;
+}
+
+.search-info{
+display:flex;
+flex-direction:column;
+}
+
+.search-title{
+font-weight:600;
+color:white;
+}
+
+.search-artist{
+font-size:13px;
+color:#aaa;
 }

@@ -369,9 +369,7 @@ item.innerHTML = `
 
   <div class="bdiv">
     <p class="mark_artistname">${artist.name}</p>
-  </div>
-  <div id="artistBio" class="bio"></div>
-</div>
+ 
 `;
 
 resultsContainer.appendChild(item);

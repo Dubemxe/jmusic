@@ -207,6 +207,7 @@ body{
     flex-direction:column;
     gap:20px;
     width:460px;
+    position: relative;
 }
 
 .discover-title{
@@ -445,48 +446,16 @@ body{
     box-shadow:0 6px 18px rgba(0,0,0,.5);
 }
 #searchbackDiv{
-    position: fixed;
-    right: -420px;
-    top: 0;
-
-    width: 420px;
-    height: 100%;
-
-    background: #111;
-
-    box-shadow: -10px 0 40px rgba(0,0,0,0.6);
-
-    transition: right 0.35s ease;
-
-    z-index: 2000;
-
-    overflow-y: auto;
-}
-
-#searchOverlay{
-    position: fixed;
+    position:absolute;
+    right:-40%;
     top:0;
-    left:0;
 
-    width:100%;
+    width:40%;
     height:100%;
 
-    background: rgba(0,0,0,0.45);
+    background:#111;
 
-    backdrop-filter: blur(6px);
+    transition: right 0.3s ease;
 
-    opacity:0;
-    pointer-events:none;
-
-    transition: opacity 0.3s ease;
-
-    z-index:1500;
-}
-#searchOverlay.active{
-    opacity:1;
-    pointer-events:auto;
-}
-
-#searchbackDiv.active{
-    right:0;
+    z-index:9999;
 }

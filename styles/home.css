@@ -282,6 +282,7 @@ body{
 .ad-card{
     background:#0b0b0b;
     padding:18px;
+    width: 370px;
     border-radius:12px;
     text-align:center;
     transition:transform .3s ease;

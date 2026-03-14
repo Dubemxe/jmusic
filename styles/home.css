@@ -3,7 +3,6 @@
 body{
     background:black;
     font-family:'Inter',sans-serif;
-    display:flex;
 }
 
 .everything_box{
@@ -489,4 +488,31 @@ color:white;
 .search-artist{
 font-size:13px;
 color:#aaa;
+}
+/* SEARCH RESULTS PANEL */
+
+#searchbackDiv{
+    position: fixed;
+    top: 0;
+    right: 0;
+
+    width: 420px;
+    height: 100vh;
+
+    background:#050505;
+
+    padding:30px;
+
+    transform:translateX(100%);
+    transition:transform .35s ease;
+
+    z-index:9999;
+
+    overflow-y:auto;
+}
+
+/* visible state */
+
+#searchbackDiv.active{
+    transform:translateX(0);
 }

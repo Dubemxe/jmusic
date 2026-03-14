@@ -255,36 +255,36 @@ return decodeURIComponent(match[1]).split(",")
 return []
 
 }
-
-
-
 async function loadTracksFromIds(ids){
 
 try{
-  const token = await getSpotifyToken();
-  
-  const searchResponse = await fetch(
-  `https://api.spotify.com/v1/search?q=${encodeURIComponent(artistName)}&type=artist&limit=1`,
-  {
-  headers:{
-  Authorization:`Bearer ${token}`
-  }
-  });
-  
-  const searchData = await searchResponse.json();
 
-renderSongs(searchData.tracks)
+const token = await getSpotifyToken();
+
+/* convert array → comma list */
+const idsString = ids.join(",");
+
+const response = await fetch(
+`https://api.spotify.com/v1/tracks?ids=${idsString}`,
+{
+headers:{
+Authorization:`Bearer ${token}`
+}
+}
+);
+
+const data = await response.json();
+
+/* Spotify returns tracks inside data.tracks */
+renderSongs(data.tracks);
 
 }catch(error){
 
-console.error(error)
+console.error("Error loading tracks:", error);
 
 }
 
 }
-
-
-
 // PAGE LOAD
 
 const ids = getTrackIdsFromHash()

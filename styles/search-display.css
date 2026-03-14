@@ -87,7 +87,9 @@ gap:10px;
     border-radius:30px;
     overflow:hidden;
 }
-
+.bio {
+  color: white;
+}
 .searchbar{
     width:260px;
     height:48px;

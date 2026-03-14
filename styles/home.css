@@ -524,15 +524,20 @@ color:#aaa;
 .imge {
   width: 430px;
   height: 520px;
+
   background-size: cover;
   background-position: center;
-    position: relative;
-    display: flex;
-    justify-content: flex-start;
+
+  position: relative;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end; 
+
   margin: 20px;
-    margin-right: 5px;
+  margin-right: 5px;
+
   border-radius: 17px;
-  
 }
 .mark_artistname {
   font-weight: bold;

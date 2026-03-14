@@ -368,6 +368,6 @@ item.innerHTML=`
 
 resultsContainer.appendChild(item);
 
-});
+}
 
 }

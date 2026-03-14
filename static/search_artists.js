@@ -362,7 +362,7 @@ item.innerHTML=`
   </div>
 
   <div class="bdiv">
-    <p class="mark_artistname">${artist.name}</p>
+    <p class="mark_artistname">${artist.name}</p> </div>
     <p class="bio">${bio}</p>
 `;
 

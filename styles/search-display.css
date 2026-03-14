@@ -136,7 +136,7 @@ h2 {
   margin: 0;
   width: 100%;
   margin-bottom: 1rem;
-  background-image: url('images/Banner_Art.png');
+  background:black;
 }
 .back_img {
   width: 47px;

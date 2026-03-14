@@ -139,10 +139,12 @@ async function getArtistBio(artistName) {
 }
 
 
-function popupaDiv() { 
-  const contentDiv = document.getElementById("searchbackDiv"); 
-  const isHidden = window.getComputedStyle(contentDiv).display === "none"; 
-  contentDiv.style.display = isHidden ? "block" : "none";
+function popupaDiv(){
+
+const panel = document.getElementById("searchbackDiv")
+
+panel.classList.toggle("active")
+
 }
 
 

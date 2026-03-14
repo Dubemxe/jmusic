@@ -9,10 +9,9 @@ html {
   box-sizing: border-box;
 }
 body {
-  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-  color: white;
-  background-color: #000;
-  margin: 0;
+    background-color: black;
+    font-family:'Inter',sans-serif;
+    display:flex;
 }
 p {
   font-size: 26px;
@@ -156,35 +155,37 @@ h2 {
   margin-right: 120px;
 
 }
-.searchbar {
-  padding: 0.5rem;
-  height: 51px;
-  border: none;
-  background-color: #333;
-  color: white;
-  width: 800px;
-  border-radius: 7px 0 0 7px;
+.search_div{
+    display:flex;
+    align-items:center;
+    border:1px solid white;
+    border-radius:30px;
+    overflow:hidden;
 }
-.searchBtn {
-  background-color: #444;
-  border: none;
-  color: white;
-  padding: 0.5rem 1rem;
-  border-radius: 0 7px 7px 0;
-  cursor: pointer;
+
+.searchbar{
+    width:260px;
+    height:48px;
+    border:none;
+    outline:none;
+    background:transparent;
+    color:white;
+    text-align:center;
 }
-.searchimg {
-    width: 22px;
-    height: 22px;
+
+.searchbtn{
+    width:50px;
+    height:48px;
+    border:none;
+    background:transparent;
+    cursor:pointer;
 }
-.actimg {
-  width: 90px;
-  height: 90px;
-  margin-right: 80px;
-  margin-top: 65px;
-  border-radius: 25px;
-  cursor: pointer;
+
+.img{
+    width:28px;
+    height:28px;
 }
+
 .subtext {
   margin-top: 1rem;
   margin-bottom: 0.5rem;

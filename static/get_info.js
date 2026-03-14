@@ -9,28 +9,7 @@ const data = await response.json();
 return data.token;
 
 }
-function popupaDiv(){
 
-const panel = document.getElementById("searchbackDiv");
-const overlay = document.getElementById("searchOverlay");
-
-panel.classList.toggle("active");
-overlay.classList.toggle("active");
-
-}
-document
-.getElementById("searchOverlay")
-.addEventListener("click", () => {
-
-document
-.getElementById("searchbackDiv")
-.classList.remove("active");
-
-document
-.getElementById("searchOverlay")
-.classList.remove("active");
-
-});
 function changeUrl(url) {
                 window.location.href = url;
                 }

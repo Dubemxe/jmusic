@@ -499,7 +499,7 @@ color:#aaa;
     top: 0;
     right: 0;
 
-    width: 520px;
+    width: 550px;
     height: 100vh;
 
     background:#050505;
@@ -584,8 +584,8 @@ color:#aaa;
 .bio{
 color:white;
 line-height:1.5;
-margin:20px;
 max-width:430px;
+margin-top: 7px;
 }
 .div3 {
   display: flex;

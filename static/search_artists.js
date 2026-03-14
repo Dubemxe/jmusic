@@ -312,23 +312,23 @@ liveSearch(query)
 async function liveSearch(query){
 
 try{
-  
+
 const token = await getSpotifyToken();
-  
-  const searchResponse = await fetch(
-  `https://api.spotify.com/v1/search?q=${encodeURIComponent(artistName)}&type=artist&limit=1`,
-  {
-  headers:{
-  Authorization:`Bearer ${token}`
-  }
-  });
+
+const searchResponse = await fetch(
+`https://api.spotify.com/v1/search?q=${encodeURIComponent(query)}&type=track&limit=8`,
+{
+headers:{
+Authorization:`Bearer ${token}`
+}
+});
 
 const searchData = await searchResponse.json();
 
-displayResults(searchData.tracks.items)
+displayResults(searchData.tracks.items);
 
 }catch(err){
-console.error(err)
+console.error(err);
 }
 
 }

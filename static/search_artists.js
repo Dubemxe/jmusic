@@ -362,13 +362,14 @@ item.innerHTML = `
            data-artist-id="${artist.id}"
            data-artist-name="${artist.name}"
            onclick="addToFavorites(this)">
+           
 
   </div>
 
   <div class="bdiv">
     <p class="mark_artistname">${artist.name}</p>
   </div>
-
+  <div id="artistBio" class="bio"></div>
 </div>
 `;
 

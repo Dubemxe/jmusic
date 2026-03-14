@@ -333,7 +333,7 @@ Authorization:`Bearer ${token}`
 
 const searchData = await searchResponse.json();
 
-displayResults(searchData.tracks.items);
+displayResults(searchData.artists.items);
 
 }catch(err){
 console.error(err);

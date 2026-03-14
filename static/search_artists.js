@@ -137,7 +137,13 @@ async function getArtistBio(artistName) {
     return "Error fetching biography.";
   }
 }
+async function loadArtistBio(artistName){
 
+const bio = await getArtistBio(artistName);
+
+document.getElementById("artistBio").textContent = bio;
+
+}
 
 function popupaDiv(){
 

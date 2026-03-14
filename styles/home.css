@@ -581,8 +581,11 @@ color:#aaa;
   margin-bottom: 14px;
   margin-left: 0px;
 }
-.bio {
-  font-size: 17px;
+.bio{
+color:white;
+line-height:1.5;
+margin:20px;
+max-width:430px;
 }
 .div3 {
   display: flex;

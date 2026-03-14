@@ -1,3 +1,14 @@
+async function getSpotifyToken(){
+
+const response = await fetch(
+"https://jmusic-backend.onrender.com/spotify-token"
+);
+
+const data = await response.json();
+
+return data.token;
+
+}
 const songList = document.getElementById("songList")
 const fullPlayer = document.getElementById("fullPlayer")
 

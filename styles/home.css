@@ -345,7 +345,6 @@ body{
     align-items:center;
     border:1px solid white;
     border-radius:30px;
-    overflow:hidden;
 }
 
 .searchbar{

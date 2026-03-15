@@ -23,8 +23,12 @@ overflow:hidden;
 .container{
 display:grid;
 grid-template-columns: 1fr;
+transition:all .35s ease;
 width:100vw;
 height:100vh;
+}
+.container.split{
+grid-template-columns: 1fr 540px;
 }
 
 /* LEFT SIDE */
@@ -170,25 +174,21 @@ color:#aaa;
 /* FULL PLAYER PANEL */
 
 .full-player{
-position:fixed;
-top:0;
-right:0;
 
 width:540px;
 height:100vh;
 
-background:#644f45;
+background:#141414;
 
 transform:translateX(100%);
-transition:transform 0.35s ease;
-
-z-index:999;
+transition:transform .35s ease;
 
 display:flex;
 flex-direction:column;
-padding:20px;
 
+padding:20px;
 overflow-y:auto;
+
 }
 
 /* PANEL OPEN */
@@ -309,4 +309,67 @@ height:40px;
 .ppnp2{
 width:30px;
 height:30px;
+}
+.container.split .songlist_sec{
+max-width:calc(100vw - 540px);
+}
+.musicInfo{
+
+max-width:1000px;
+height:80px;
+
+background:#121212;
+
+border-radius:10px;
+
+display:flex;
+align-items:center;
+gap:18px;
+
+padding:12px;
+
+cursor:pointer;
+
+transition:all .2s ease;
+
+border:1px solid transparent;
+}
+
+.musicInfo:hover{
+
+background:#1f1f1f;
+border:1px solid #2f2f2f;
+
+transform:translateX(4px);
+
+}
+.musicInfo{
+
+max-width:1000px;
+height:80px;
+
+background:#121212;
+
+border-radius:10px;
+
+display:flex;
+align-items:center;
+gap:18px;
+
+padding:12px;
+
+cursor:pointer;
+
+transition:all .2s ease;
+
+border:1px solid transparent;
+}
+
+.musicInfo:hover{
+
+background:#1f1f1f;
+border:1px solid #2f2f2f;
+
+transform:translateX(4px);
+
 }

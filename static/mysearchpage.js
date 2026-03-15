@@ -31,6 +31,8 @@ let isPlaying = false
 
 function openFullPlayer(){
 
+document.querySelector(".container").classList.add("split")
+
 fullPlayer.classList.add("show")
 
 }
@@ -39,6 +41,8 @@ fullPlayer.classList.add("show")
 // CLOSE PLAYER
 
 function closeFullPlayer(){
+
+document.querySelector(".container").classList.remove("split")
 
 fullPlayer.classList.remove("show")
 
@@ -175,11 +179,7 @@ const songHTML = `
 src="${track.album.images[0].url}"
 class="albumImage"
 
-onclick="
-loadPlayer(${index});
-openFullPlayer();
-playAudio('${track.preview_url}')
-">
+onclick='playTrack(${JSON.stringify(track)})'>
 
 <div class="artistsDets">
 
@@ -203,8 +203,15 @@ songList.innerHTML += songHTML
 
 }
 
+function playTrack(track){
 
+loadPlayer(track)
 
+openFullPlayer()
+
+playAudio(track.preview_url)
+
+}
 // SEARCH SONGS
 
 async function searchSong_onpage(){
@@ -212,24 +219,23 @@ async function searchSong_onpage(){
 try{
 
 const query =
-document.getElementById("artistSearchInput")
-.value.trim()
+document.getElementById("artistSearchInput").value.trim()
 
 if(!query) return
 
+const token = await getSpotifyToken()
+
 const response = await fetch(
-`https://api.spotify.com/v1/search?q=${encodeURIComponent(query)}&type=tracks&limit=9`,
+`https://api.spotify.com/v1/search?q=${encodeURIComponent(query)}&type=track&limit=12`,
 {
 headers:{
 Authorization:`Bearer ${token}`
 }
-});
+})
 
 const data = await response.json()
 
-const tracks = data.tracks.items
-
-renderSongs(tracks)
+renderSongs(data.tracks.items)
 
 }catch(error){
 
@@ -238,7 +244,6 @@ console.error(error)
 }
 
 }
-
 
 
 // LOAD FROM HOMEPAGE TRACK IDS

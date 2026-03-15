@@ -175,11 +175,20 @@ const songHTML = `
 
 <div class="musicInfo">
 
+<div class="albumWrap">
+
 <img
 src="${track.album.images[0].url}"
-class="albumImage"
+class="albumImage">
 
+<div class="hoverPlay"
 onclick='playTrack(${JSON.stringify(track)})'>
+
+▶
+
+</div>
+
+</div>
 
 <div class="artistsDets">
 
@@ -194,6 +203,7 @@ ${msToTime(track.duration_ms)}
 </p>
 
 </div>
+
 
 `
 
@@ -316,5 +326,17 @@ if(e.key==="Enter"){
 searchSong_onpage()
 
 }
+
+})
+currentSong?.addEventListener("timeupdate",()=>{
+
+const progress =
+(currentSong.currentTime / currentSong.duration) * 100
+
+document.querySelector(".progress-filled")
+.style.width = progress + "%"
+
+currentTime.textContent =
+msToTime(currentSong.currentTime * 1000)
 
 })

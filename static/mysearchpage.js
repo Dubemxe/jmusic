@@ -184,7 +184,6 @@ class="albumImage">
 <div class="hoverPlay"
 onclick='playTrack(${JSON.stringify(track)})'>
 
-▶
 
 </div>
 

@@ -261,7 +261,7 @@ function completeList() {
 
   if (selectedTrackIds.length === 0) {
 
-    alert("Please select at least one artist.");
+    console.log("Please select at least one artist.");
 
     return;
   }

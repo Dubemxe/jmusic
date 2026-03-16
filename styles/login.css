@@ -18,6 +18,8 @@ body {
   flex-direction: row;
   column-gap: 0px;
   align-items: center;
+  justify-items: center;
+
 }
 .logo {
   width: 125px;

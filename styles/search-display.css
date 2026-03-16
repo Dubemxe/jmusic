@@ -220,7 +220,7 @@ cursor:pointer;
 /* ALBUM ART */
 
 .songImage{
-width:380px;
+width:270px;
 height:300px;
 object-fit:cover;
 border-radius:4px;

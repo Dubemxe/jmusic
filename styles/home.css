@@ -501,7 +501,7 @@ color:#aaa;
     right: 0;
 
     width: 550px;
-    height: 100vh;
+    height: 720px;
 
     background:#050505;
 
@@ -564,30 +564,44 @@ font-weight:700;
 color:white;
 margin-bottom:8px;
 }
-.mark_artistname {
-  font-weight: bold;
-  color: white;
-  margin-left: 18px;
-  font-size: 1.5rem;
-  margin-top: 12px;
-  margin-bottom: 15px;
+
+.mark_artistname{
+font-size:52px;
+font-weight:700;
+color:white;
+
+transition:transform .35s ease;
+}
+
+.imge:hover .mark_artistname{
+transform:translateY(-4px);
 }
 .bio{
+
 color:#dcdcdc;
 font-size:15px;
 line-height:1.6;
 
+max-height:0;
 opacity:0;
-transform:translateY(10px);
 
-transition:all .35s ease;
-
-max-height:140px;
 overflow:hidden;
+
+transform:translateY(8px);
+
+transition:
+max-height .35s ease,
+opacity .25s ease,
+transform .35s ease;
+
 }
 .imge:hover .bio{
+
+max-height:120px;
 opacity:1;
+
 transform:translateY(0);
+
 }
 .checkdiv{
 position:absolute;

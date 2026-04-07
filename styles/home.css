@@ -35,21 +35,28 @@ body{
 }
 .hero{
 
-height:280px;
-
 display:flex;
-flex-direction:column;
-justify-content:center;
-align-items:flex-start;
+justify-content:space-between;
+align-items:center;
 
-padding:40px;
+padding:50px;
+
+height:340px;
 
 background:linear-gradient(
 to bottom,
-#1db95433,
+#1db95422,
 transparent
 );
 
+}
+
+.hero-left{
+display:flex;
+flex-direction:column;
+gap:16px;
+
+max-width:480px;
 }
 
 .hero h1{
@@ -78,7 +85,9 @@ font-weight:600;
 cursor:pointer;
 
 }
-
+.hero-left button{
+width:fit-content;
+}
 .name {
         color: white;
         margin-top: 10px;
@@ -411,31 +420,61 @@ gap:20px;
 .search_div{
     display:flex;
     align-items:center;
-    border:1px solid white;
-    border-radius:30px;
+    background:rgba(255,255,255,0.05);
+    border:1px solid rgba(255,255,255,0.1);
+    border-radius:40px;
+    padding:6px 8px;
+    width:100%;
+    max-width:420px;
+    backdrop-filter:blur(10px);
+    transition:all .25s ease;
+}
+
+/* Hover glow */
+.search_div:hover{
+    border-color:#1db954;
+    box-shadow:0 0 12px rgba(29,185,84,0.3);
 }
 
 .searchbar{
-    width:260px;
-    height:48px;
+    flex:1;
+    height:44px;
     border:none;
     outline:none;
     background:transparent;
     color:white;
-    text-align:center;
+    font-size:15px;
+    padding-left:14px;
+}
+
+
+.searchbar::placeholder{
+color:#aaa;
 }
 
 .searchbtn{
-    width:50px;
-    height:48px;
+    width:42px;
+    height:42px;
     border:none;
-    background:transparent;
+    background:#1db954;
+    border-radius:50%;
+    display:flex;
+    align-items:center;
+    justify-content:center;
     cursor:pointer;
+    transition:all .25s ease;
+}
+
+/* Hover effect */
+.searchbtn:hover{
+    transform:scale(1.08);
+    background:#1ed760;
 }
 
 .img{
-    width:28px;
-    height:28px;
+    width:18px;
+    height:18px;
+    filter:invert(1);
 }
 
 

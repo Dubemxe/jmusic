@@ -186,7 +186,36 @@ function fmtCount(count) {
         return count.toString();
     }
 }
+function openFullPlayer(){
 
+if(window.innerWidth <= 768){
+
+// mobile → fullscreen
+fullPlayer.classList.add("show")
+
+}else{
+
+// desktop → split
+document.querySelector(".container").classList.add("split")
+fullPlayer.classList.add("show")
+
+}
+
+}
+function closeFullPlayer(){
+
+if(window.innerWidth <= 768){
+
+fullPlayer.classList.remove("show")
+
+}else{
+
+document.querySelector(".container").classList.remove("split")
+fullPlayer.classList.remove("show")
+
+}
+
+}
 
 const artists = [
     "Drake",

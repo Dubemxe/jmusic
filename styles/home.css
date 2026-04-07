@@ -33,6 +33,52 @@ body{
         margin-top: 10px;
         margin-bottom: 6px;
 }
+.hero{
+
+height:280px;
+
+display:flex;
+flex-direction:column;
+justify-content:center;
+align-items:flex-start;
+
+padding:40px;
+
+background:linear-gradient(
+to bottom,
+#1db95433,
+transparent
+);
+
+}
+
+.hero h1{
+font-size:42px;
+font-weight:800;
+}
+
+.hero p{
+color:#bbb;
+margin-top:10px;
+}
+
+.hero button{
+
+margin-top:20px;
+
+padding:12px 22px;
+
+background:#1db954;
+border:none;
+
+border-radius:30px;
+
+font-weight:600;
+
+cursor:pointer;
+
+}
+
 .name {
         color: white;
         margin-top: 10px;
@@ -178,6 +224,25 @@ body{
     max-width:1300px;
     display:flex;
     gap:40px;
+}
+.homeheader{
+
+position:sticky;
+top:0;
+
+background:rgba(0,0,0,0.7);
+
+backdrop-filter:blur(10px);
+
+z-index:1000;
+
+}
+.artist-grid{
+
+display:flex;
+overflow-x:auto;
+gap:20px;
+
 }
 
 .artists-section{
@@ -493,6 +558,14 @@ color:white;
 font-size:13px;
 color:#aaa;
 }
+#searchResults{
+gap:24px;
+}
+
+.imge{
+margin:30px;
+}
+
 /* SEARCH RESULTS PANEL */
 
 #searchbackDiv{
@@ -608,6 +681,37 @@ position:absolute;
 top:10px;
 right:10px;
 z-index:3;
+}
+.imge{
+
+transition:all .3s ease;
+
+}
+
+.imge:hover{
+
+transform:scale(1.03);
+box-shadow:0 10px 40px rgba(0,0,0,0.6);
+
+}
+.imge{
+background-size:110%;
+}
+
+.imge:hover{
+background-size:120%;
+}
+.imge{
+opacity:0;
+transform:translateY(20px);
+animation:fadeUp .5s ease forwards;
+}
+
+@keyframes fadeUp{
+to{
+opacity:1;
+transform:translateY(0);
+}
 }
 
 .bdiv {

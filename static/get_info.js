@@ -279,6 +279,49 @@ console.error("Slideshow error:", err)
 }
 
 }
+function createSlides(artists){
+
+const slideshow = document.getElementById("slideshow");
+
+slideshow.innerHTML = "";
+
+artists.forEach((artist, index)=>{
+
+if(!artist.images.length) return;
+
+const img = document.createElement("img");
+
+img.src = artist.images[0].url;
+img.className = "slide";
+
+if(index === 0){
+img.classList.add("active");
+}
+
+slideshow.appendChild(img);
+
+});
+
+startSlideshow();
+
+}
+function startSlideshow(){
+
+const slides = document.querySelectorAll(".slide");
+
+let currentSlide = 0;
+
+setInterval(()=>{
+
+slides[currentSlide].classList.remove("active");
+
+currentSlide = (currentSlide + 1) % slides.length;
+
+slides[currentSlide].classList.add("active");
+
+},3000);
+
+}
 const artists = [
     "Drake",
     "Davido",
@@ -340,3 +383,4 @@ openBtn.addEventListener("click", () => {
 closeBtn.addEventListener("click", () => {
     panel.classList.remove("active");
 });
+loadHeroSlideshow();

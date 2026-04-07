@@ -216,6 +216,38 @@ fullPlayer.classList.remove("show")
 }
 
 }
+const miniPlayer = document.getElementById("miniPlayer")
+
+function playTrack(track){
+
+loadPlayer(track)
+playAudio(track.preview_url)
+
+if(window.innerWidth <= 768){
+
+miniPlayer.classList.add("show")
+
+document.getElementById("miniArt").src =
+track.album.images[0].url
+
+document.getElementById("miniTitle").textContent =
+track.name
+
+document.getElementById("miniArtist").textContent =
+track.artists.map(a=>a.name).join(", ")
+
+}else{
+
+openFullPlayer()
+
+}
+
+}
+miniPlayer.addEventListener("click",()=>{
+
+openFullPlayer()
+
+})
 
 const artists = [
     "Drake",

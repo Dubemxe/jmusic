@@ -248,7 +248,37 @@ miniPlayer.addEventListener("click",()=>{
 openFullPlayer()
 
 })
+async function loadHeroSlideshow(){
 
+try{
+
+const token = await getSpotifyToken()
+
+const queries = ["pop", "hip-hop", "afrobeats", "rnb"]
+
+const randomQuery =
+queries[Math.floor(Math.random()*queries.length)]
+  
+const response = await fetch(
+`https://api.spotify.com/v1/search?q=genre:${randomQuery}&type=artist&limit=5`,
+{
+headers:{
+Authorization:`Bearer ${token}`
+}
+}
+)
+
+const data = await response.json()
+
+const artists = data.artists.items
+
+createSlides(artists)
+
+}catch(err){
+console.error("Slideshow error:", err)
+}
+
+}
 const artists = [
     "Drake",
     "Davido",

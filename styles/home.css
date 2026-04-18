@@ -41,22 +41,34 @@ body{
   padding:40px 60px;
   position:relative;
   overflow:hidden;
-background:linear-gradient(
-to bottom,
-#1db95422,
-transparent
-);
-
+    background:linear-gradient(
+    to bottom,
+    #1db95422,
+    transparent
+    );
 }
 
 .hero-left{
-display:flex;
-flex-direction:column;
-gap:16px;
+    
+}
+.hero-search{
+  display:flex;
+  justify-content:center;
+}
+.slide{
+  position:absolute;
+  width:100%;
+  height:100%;
+  object-fit:cover;
 
-max-width:480px;
+  opacity:0;
+  transition:opacity 1s ease-in-out;
+  filter:brightness(0.65);
 }
 
+.slide.active{
+  opacity:1;
+}
 .hero h1{
 font-size:42px;
 font-weight:800;

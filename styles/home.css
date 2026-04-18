@@ -34,15 +34,12 @@ body{
         margin-bottom: 6px;
 }
 .hero{
-
 display:flex;
+flex-direction: row;
 justify-content:space-between;
 align-items:center;
-
 padding:50px;
-
-height:340px;
-
+height: 340px;
 background:linear-gradient(
 to bottom,
 #1db95422,

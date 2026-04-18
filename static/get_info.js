@@ -279,6 +279,8 @@ if(!artists || artists.length === 0){
 console.log("No artists found for slideshow");
 return;
 }
+}
+}
 
 function createSlides(artists){
 

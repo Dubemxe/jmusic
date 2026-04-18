@@ -327,7 +327,7 @@ slides[currentSlide].classList.add("active");
 },3000);
 
 }
-const artists = [
+const artistsDir = [
     "Drake",
     "Davido",
     "21 Savage",
@@ -348,7 +348,7 @@ const artists = [
 const artistGrid = document.getElementById("artistGrid");
 
 // shuffle artists
-const shuffledArtists = artists.sort(() => 0.5 - Math.random());
+const shuffledArtists = artistsDir.sort(() => 0.5 - Math.random());
 
 // num of cards
 const numberOfCards = 9;

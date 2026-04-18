@@ -252,42 +252,45 @@ async function loadHeroSlideshow(){
 
 try{
 
-const token = await getSpotifyToken()
+const token = await getSpotifyToken();
 
-const queries = ["pop", "hip-hop", "afrobeats", "rnb"]
+const artistsList = [
+"Drake","Burna Boy","Travis Scott",
+"Rihanna","Wizkid","Future","Tems"
+];
 
-const randomQuery =
-queries[Math.floor(Math.random()*queries.length)]
-  
+const randomArtist =
+artistsList[Math.floor(Math.random() * artistsList.length)];
+
 const response = await fetch(
-`https://api.spotify.com/v1/search?q=genre:${randomQuery}&type=artist&limit=5`,
+`https://api.spotify.com/v1/search?q=${encodeURIComponent(randomArtist)}&type=artist&limit=5`,
 {
 headers:{
 Authorization:`Bearer ${token}`
 }
 }
-)
+);
 
-const data = await response.json()
+const data = await response.json();
 
-const artists = data.artists.items
+const artists = data.artists.items;
 
-createSlides(artists)
-
-}catch(err){
-console.error("Slideshow error:", err)
+if(!artists || artists.length === 0){
+console.log("No artists found for slideshow");
+return;
 }
 
-}
 function createSlides(artists){
 
 const slideshow = document.getElementById("slideshow");
+
+if(!slideshow) return;
 
 slideshow.innerHTML = "";
 
 artists.forEach((artist, index)=>{
 
-if(!artist.images.length) return;
+if(!artist.images || artist.images.length === 0) return;
 
 const img = document.createElement("img");
 
@@ -308,6 +311,8 @@ startSlideshow();
 function startSlideshow(){
 
 const slides = document.querySelectorAll(".slide");
+
+if(slides.length === 0) return;
 
 let currentSlide = 0;
 
